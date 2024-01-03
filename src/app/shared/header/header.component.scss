@@ -1,0 +1,30 @@
+ul {
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        
+        &:not(&:first-child) {
+            width: 100%;
+            min-height: 2rem;
+            flex-grow: 1;
+        }
+
+        &:first-child {
+            padding: 1rem;
+        }
+    
+        &:hover {
+            font-weight: bold;
+            
+            &:not(:first-child) {
+                background-color: rgba(0, 0, 255, 0.5);
+            }
+        }
+    }
+}
+
+li.active {
+    font-weight: bold;
+}
