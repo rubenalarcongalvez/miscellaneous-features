@@ -1,0 +1,39 @@
+main {
+    background-image: url('/assets/wallpaper.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    min-height: 80vh;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    div {
+        backdrop-filter: blur(10px);
+        height: 200px;
+        width: 200px;
+        border: 1px solid gray;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+
+        &.example1 {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        &.example2 {
+            background-color: transparent;
+        }
+
+        @media(max-width: 600px) {
+            width: fit-content;
+            height: fit-content;
+            padding: 1rem;
+        }
+
+        span {
+            color: white;
+        }
+    }
+}
