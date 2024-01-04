@@ -1,5 +1,19 @@
-main {
-    background-image: url('/assets/education-background.jpg');
-    background-position: center;
-    background-size: cover;
+section {
+    background-color: rgba(0, 0, 0, 0.750);
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: 1s;
+
+    h1 {
+        color: rgba(0, 132, 255);
+    }
+
+    p {
+        color: white;
+    }
+
+    &:hover {
+        scale: 1.05;
+        transition: 1s;
+    }
 }
