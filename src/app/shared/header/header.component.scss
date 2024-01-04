@@ -28,4 +28,9 @@ ul {
 
 li.active {
     font-weight: bold;
+    color: aqua;
+}
+
+li.last {
+    order: 999999;
 }
