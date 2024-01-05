@@ -6,14 +6,11 @@ ul {
         justify-content: center;
         cursor: pointer;
         transition: background-color 1s;
+        padding: 1rem;
         
         &:not(&:first-child) {
             flex-grow: 1;
             min-height: 2rem;
-        }
-
-        &:first-child {
-            padding: 1rem;
         }
     
         &:hover {

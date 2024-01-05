@@ -5,6 +5,7 @@ import { PaymentWallComponent } from './views/payment-wall/payment-wall.componen
 import { BasicAccordionComponent } from './views/basic-accordion/basic-accordion.component';
 import { GlassEffectComponent } from './views/glass-effect/glass-effect.component';
 import { TransformComponent } from './views/transform/transform.component';
+import { ClampComponent } from './views/clamp/clamp.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -13,4 +14,5 @@ export const routes: Routes = [
     {path: 'basic-accordion', component: BasicAccordionComponent},
     {path: 'glass-effect', component: GlassEffectComponent},
     {path: 'transform', component: TransformComponent},
+    {path: 'clamp', component: ClampComponent},
 ];

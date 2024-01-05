@@ -1,0 +1,8 @@
+main {
+    min-width: 210px;
+    .box {
+        width: clamp(200px, 75%, 500px);
+        height: 50px;
+        background-color: orange;
+    }
+}
