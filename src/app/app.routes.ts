@@ -4,6 +4,7 @@ import { NormalizeStringsComponent } from './views/normalize-strings/normalize-s
 import { PaymentWallComponent } from './views/payment-wall/payment-wall.component';
 import { BasicAccordionComponent } from './views/basic-accordion/basic-accordion.component';
 import { GlassEffectComponent } from './views/glass-effect/glass-effect.component';
+import { TransformComponent } from './views/transform/transform.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -11,4 +12,5 @@ export const routes: Routes = [
     {path: 'payment-wall', component: PaymentWallComponent},
     {path: 'basic-accordion', component: BasicAccordionComponent},
     {path: 'glass-effect', component: GlassEffectComponent},
+    {path: 'transform', component: TransformComponent},
 ];
