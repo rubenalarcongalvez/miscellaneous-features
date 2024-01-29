@@ -1,0 +1,56 @@
+<main class="flex flex-col justify-center items-evenly">
+    <section>
+        <article>
+            <h3>audio <span>(no similar HTML properties)</span></h3>
+            <audio [controls]="true" [loop]="true">
+                <source src="assets/horse.ogg" type="audio/ogg">
+                <source src="assets/horse.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h3>img - picture <span>(preferred)</span></h3>
+            <picture>
+                <source media="(min-width:650px)" srcset="assets/wallpaper.png">
+                <source media="(max-width:465px)" srcset="assets/osoPanda.jpg">
+                <img src="assets/gallina.jpg" alt="an image" class="h-80">
+            </picture>
+        </article>
+        <article>
+            <h3>embed img</h3>
+            <embed src="assets/wallpaper.png" type="image/png" class="h-80" alt="an image">
+        </article>
+    </section>
+
+    <section>
+        <article class="w-[50%] flex flex-col justify-center m-2">
+            <h3>embed PDF <span>(no similar HTML properties)</span></h3>
+            <embed src="assets/c1_advanced_reading_respuestas.pdf" class="h-96">
+        </article>
+    </section>
+
+    <section>
+        <article>
+            <h3>video <span>(preferred)</span></h3>
+            <video src="assets/life-is-fragile.mp4" class="h-80" width="560" [controls]="true" [autoplay]="false" [muted]="false" [loop]="true">
+                <source src="assets/life-is-fragile.mp4" type="video/mp4">
+                Your browser does not support video tag.
+            </video>
+        </article>
+        <article class="flex flex-col items-center">
+            <h3>embed video <span class="con text-red-600 width-[560px]">(by default, it autoplays, cannot play/pause from the screen, cannot expand)</span></h3>
+            <embed src="assets/life-is-fragile.mp4" type="video/mp4" class="h-80" width="560">
+        </article>
+    </section>
+
+    <h1 class="text-center mt-5">To embed a video from Youtube, just go to the video, click <code>Share</code> and then on <code>Embed</code></h1>
+    <br>
+    <section>
+        <article>
+            <h3>Youtube video <span>(with iframe)</span></h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </article>
+    </section>
+</main>

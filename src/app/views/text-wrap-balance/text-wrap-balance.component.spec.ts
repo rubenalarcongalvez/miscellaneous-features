@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaymentWallComponent } from './payment-wall.component';
+import { TextWrapBalanceComponent } from './text-wrap-balance.component';
 
-describe('PaymentWallComponent', () => {
-  let component: PaymentWallComponent;
-  let fixture: ComponentFixture<PaymentWallComponent>;
+describe('TextWrapBalanceComponent', () => {
+  let component: TextWrapBalanceComponent;
+  let fixture: ComponentFixture<TextWrapBalanceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaymentWallComponent]
+      imports: [TextWrapBalanceComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PaymentWallComponent);
+    fixture = TestBed.createComponent(TextWrapBalanceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

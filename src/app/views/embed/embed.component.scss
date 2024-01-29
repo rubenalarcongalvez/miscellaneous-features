@@ -1,0 +1,21 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+code {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+span:not(span.con) {
+    color: rgba(0, 94, 255, 0.773);
+}

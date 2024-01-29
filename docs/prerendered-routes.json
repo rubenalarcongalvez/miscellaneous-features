@@ -1,7 +1,0 @@
-{
-  "routes": [
-    "/",
-    "/normalize-strings",
-    "/payment-wall"
-  ]
-}
