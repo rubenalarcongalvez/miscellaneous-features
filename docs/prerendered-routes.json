@@ -1,0 +1,13 @@
+{
+  "routes": [
+    "/",
+    "/basic-accordion",
+    "/clamp",
+    "/embed",
+    "/glass-effect",
+    "/normalize-strings",
+    "/payment-gateway",
+    "/text-wrap-balance",
+    "/transform"
+  ]
+}
