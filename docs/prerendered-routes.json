@@ -5,6 +5,7 @@
     "/clamp",
     "/embed",
     "/glass-effect",
+    "/input-file",
     "/normalize-strings",
     "/payment-gateway",
     "/text-wrap-balance",
