@@ -1,25 +1,25 @@
 <br>
-<form class="flex justify-evenly">
+<form class="flex justify-evenly flex-wrap gap-4">
     <section>
         <h2>Simple input file</h2>
-        <input type="file" name="fileName" id="fileName">
+        <input type="file" name="fileName" id="fileName" (change)="previewBeforeUpload($event)">
     </section>
 
     <section>
         <h2>Multiple input file</h2>
-        <input [multiple]="true" type="file" name="multipleFileName" id="multipleFileName">
+        <input [multiple]="true" type="file" name="multipleFileName" id="multipleFileName" (change)="previewBeforeUpload($event)">
     </section>
 
     <section>
         <h2>Limited to certain type of files</h2>
         <!-- Just common img and video files -->
-        <input [multiple]="true" accept=".png, .jpg, .avi, .mp4" type="file" name="multipleFileName" id="multipleFileName">
+        <input [multiple]="true" accept=".png, .jpg, .avi, .mp4" type="file" name="multipleFileName" id="multipleFileName" (change)="previewBeforeUpload($event)">
     </section>
 
     <section>
         <h2>Styling input file</h2>
         <label class="custom-file-upload">
-            <input type="file" [multiple]="true" accept=".png, .jpg, .avi, .mp4"/>
+            <input type="file" [multiple]="true" accept=".png, .jpg, .avi, .mp4" (change)="previewBeforeUpload($event)"/>
             <div>
                 <h3 class="text-center">Custom upload</h3>
                 <p>Upload your files freely</p>
@@ -27,3 +27,32 @@
         </label>
     </section>
 </form>
+
+<br>
+
+<div class="flex justify-center items-center flex-col">
+    <label class="cursor-pointer">
+        <input type="file" accept=".png, .jpg, .avi, .mp4, .pdf, .docx, .txt, .txd" class="hidden" (change)="previewBeforeUpload($event)"/>
+            <main class="flex items-center flex-col w-[500px] relative" (mouseenter)="hoverTitle()" (mouseleave)="blurTitle()">
+                @switch (fileType) {
+                    @case ('image') {
+                        <img [src]="fileSrc" alt="image" width="500" height="auto" class="rounded">
+                    }
+                    @case ('video') {
+                        <video class="-z-10" [src]="fileSrc" width="500" [controls]="false" [autoplay]="true" [muted]="false" [loop]="true">
+                            <source [src]="fileSrc" type="video/mp4">
+                            <source [src]="fileSrc" type="video/avi">
+                            Your browser does not support video tag.
+                        </video>
+                    }
+                    @default {
+                        <img src="assets/blueWallpaper.png" alt="image" width="500" height="auto" class="rounded">
+                    }
+                }
+                <h3 class="text-white w-full text-center p-2 absolute bottom-0" style="background-color: rgba(0, 0, 0, 0.75);" [ngClass]="{'rounded-b': fileTitle == 'Upload your file to preview', 'rounded-t': previewHover}">{{previewHover ? 'Upload your file to preview' : fileTitle}}</h3>
+            </main>
+    </label>
+    @if (fileTitle != 'Upload your file to preview') {
+        <p class="bg-orange-500 text-white text-center rounded-b cursor-pointer hover:font-bold w-[500px]" (click)="clear()">Clear</p>
+    }
+</div>

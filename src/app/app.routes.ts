@@ -9,6 +9,7 @@ import { ClampComponent } from './views/clamp/clamp.component';
 import { TextWrapBalanceComponent } from './views/text-wrap-balance/text-wrap-balance.component';
 import { EmbedComponent } from './views/embed/embed.component';
 import { InputFileComponent } from './views/input-file/input-file.component';
+import { ViewportComponent } from './components/viewport/viewport.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -21,4 +22,5 @@ export const routes: Routes = [
     {path: 'text-wrap-balance', component: TextWrapBalanceComponent},
     {path: 'embed', component: EmbedComponent},
     {path: 'input-file', component: InputFileComponent},
+    {path: 'viewport', component: ViewportComponent},
 ];

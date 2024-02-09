@@ -1,0 +1,36 @@
+<header class="flex gap-2 items-center">
+    <h1>Resize the window</h1>
+    <i class="fa-solid fa-rotate-right text-xl cursor-pointer" title="Reload" (click)="refresh()"></i>
+</header>
+<h4 class="text-blue-500">You can edit the values of each box</h4>
+<form [formGroup]="normal">
+    <h2>Normal width and height</h2>
+    <ul [style.width.px]="normal.get('width')?.value" [style.height.px]="normal.get('height')?.value">
+        <li>width: <input formControlName="width" dynamic-input><span>px</span></li>
+        <li>height: <input formControlName="height" dynamic-input><span>px</span></li>
+    </ul>
+</form>
+<form [formGroup]="main">
+    <h2>Viewport main sizes</h2>
+    <h5>You can set the percentage of screen width or height you want</h5>
+    <ul [style.width.vw]="main.get('width')?.value" [style.height.vh]="main.get('height')?.value">
+        <li>width: <input formControlName="width" dynamic-input><span>vw</span></li>
+        <li>height: <input formControlName="height" dynamic-input><span>vh</span></li>
+    </ul>
+</form>
+<form [formGroup]="min">
+    <h2>Viewport min size</h2>
+    <h5>You can set the percentage of screen min-width or min-height you want</h5>
+    <ul [style.width.px]="min.get('width')?.value" [style.min-width.vmin]="min.get('minWidth')?.value">
+        <li>width: <input formControlName="width" dynamic-input><span>px</span></li>
+        <li>min-width: <input formControlName="minWidth" dynamic-input><span>vmin</span></li>
+    </ul>
+</form>
+<form [formGroup]="max">
+    <h2>Viewport max size</h2>
+    <h5>You can set the percentage of screen max-width or max-height you want</h5>
+    <ul [style.width.px]="max.get('width')?.value" [style.max-width.vmax]="max.get('maxWidth')?.value">
+        <li>width: <input formControlName="width" dynamic-input><span>px</span></li>
+        <li>max-width: <input formControlName="maxWidth" dynamic-input><span>vmax</span></li>
+    </ul>
+</form>

@@ -1,0 +1,31 @@
+ul {
+    background-color: #262335;
+    padding: 5px;
+    list-style: none;
+    border-radius: 5px;
+    li {
+        color: aqua;
+
+        input {
+            color: #f9766f;
+            font-weight: normal;
+            background: transparent;
+            border: none;
+            text-align: center;
+        }
+
+        span:last-child {
+            color: #fe4351;
+            font-weight: normal;
+        }
+    }
+}
+
+h5 {
+    color: blue;
+}
+
+i:hover {
+    rotate: 360deg;
+    transition: 2s;
+}

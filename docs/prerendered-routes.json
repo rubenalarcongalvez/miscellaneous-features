@@ -9,6 +9,7 @@
     "/normalize-strings",
     "/payment-gateway",
     "/text-wrap-balance",
-    "/transform"
+    "/transform",
+    "/viewport"
   ]
 }
