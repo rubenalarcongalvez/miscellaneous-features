@@ -9,7 +9,7 @@ import { ClampComponent } from './views/clamp/clamp.component';
 import { TextWrapBalanceComponent } from './views/text-wrap-balance/text-wrap-balance.component';
 import { EmbedComponent } from './views/embed/embed.component';
 import { InputFileComponent } from './views/input-file/input-file.component';
-import { ViewportComponent } from './components/viewport/viewport.component';
+import { ViewportComponent } from './views/viewport/viewport.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
