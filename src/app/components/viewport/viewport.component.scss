@@ -14,7 +14,7 @@ ul {
             text-align: center;
         }
 
-        span:last-child {
+        span {
             color: #fe4351;
             font-weight: normal;
         }
@@ -23,6 +23,14 @@ ul {
 
 h5 {
     color: blue;
+
+    span {
+        color: #fe4351;
+        font-weight: normal;
+        background-color: #262335;
+        padding-inline: 4px;
+        border-radius: 5px;
+    }
 }
 
 i:hover {

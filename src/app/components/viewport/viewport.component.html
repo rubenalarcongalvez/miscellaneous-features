@@ -14,8 +14,8 @@
     <h2>Viewport main sizes</h2>
     <h5>You can set the percentage of screen width or height you want</h5>
     <ul [style.width.vw]="main.get('width')?.value" [style.height.vh]="main.get('height')?.value">
-        <li>width: <input formControlName="width" dynamic-input><span>vw</span></li>
-        <li>height: <input formControlName="height" dynamic-input><span>vh</span></li>
+        <li>width: <input formControlName="width" dynamic-input><span>vw</span> or <span>vi</span></li>
+        <li>height: <input formControlName="height" dynamic-input><span>vh</span> or <span>vb</span></li>
     </ul>
 </form>
 <form [formGroup]="min">
@@ -33,4 +33,31 @@
         <li>width: <input formControlName="width" dynamic-input><span>px</span></li>
         <li>max-width: <input formControlName="maxWidth" dynamic-input><span>vmax</span></li>
     </ul>
+</form>
+<form [formGroup]="variable">
+    <h1>Viewport variable sizes (applicable to all previous viewports)</h1>
+    <h5><span>ATTENTION:</span> This can only be proven in native mobile phone or tablet due to its UI, this is done to mobile devices</h5>
+    <section class="flex gap-5 overflow-scroll">
+        <article>
+            <ul [style.height.svh]="variable.get('sHeight')?.value" [style.width.px]="variable.get('width1')?.value">
+                <li>height: <input formControlName="sHeight" dynamic-input><span>svh</span></li>
+                <li>width: <input formControlName="width1" dynamic-input><span>px</span></li>
+            </ul>
+            <h5>Small (i.e. <span>svh</span>) will NOT take in count the dimensions of the interface of the browser (so only the visible web)</h5>
+        </article>
+        <article>
+            <ul [style.height.lvh]="variable.get('lHeight')?.value" [style.width.px]="variable.get('width2')?.value">
+                <li>height: <input formControlName="lHeight" dynamic-input><span>lvh</span></li>
+                <li>width: <input formControlName="width2" dynamic-input><span>px</span></li>
+            </ul>
+            <h5>Large (i.e. <span>lvh</span>) will take in count the dimensions of the interface of the browser (so all the window)</h5>
+        </article>
+        <article>
+            <ul [style.height.dvh]="variable.get('dHeight')?.value" [style.width.px]="variable.get('width3')?.value">
+                <li>height: <input formControlName="dHeight" dynamic-input><span>dvh</span></li>
+                <li>width: <input formControlName="width3" dynamic-input><span>px</span></li>
+            </ul>
+            <h5>Dynamic (i.e. <span>dvh</span>) will adapt to the changes, even if scroll</h5>
+        </article>
+    </section>
 </form>

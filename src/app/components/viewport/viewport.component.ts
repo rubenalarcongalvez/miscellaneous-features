@@ -22,8 +22,8 @@ export class ViewportComponent {
     height: '50'
   });
   main: FormGroup = this.fb.group({
-    width: '24',
-    height: '8'
+    width: '50',
+    height: '15'
   });
   min: FormGroup = this.fb.group({
     width: '0',
@@ -32,6 +32,14 @@ export class ViewportComponent {
   max: FormGroup = this.fb.group({
     width: '9999999',
     maxWidth: '28'
+  });
+  variable: FormGroup = this.fb.group({
+    width1: '250',
+    sHeight: '100',
+    width2: '250',
+    lHeight: '100',
+    width3: '250',
+    dHeight: '100',
   });
   
 }
