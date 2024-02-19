@@ -37,7 +37,7 @@
 <form [formGroup]="variable">
     <h1>Viewport variable sizes (applicable to all previous viewports)</h1>
     <h5><span>ATTENTION:</span> This can only be proven in native mobile phone or tablet due to its UI, this is done to mobile devices</h5>
-    <section class="flex gap-5 overflow-scroll">
+    <section class="flex gap-5 overflow-auto">
         <article>
             <ul [style.height.svh]="variable.get('sHeight')?.value" [style.width.px]="variable.get('width1')?.value">
                 <li>height: <input formControlName="sHeight" dynamic-input><span>svh</span></li>
