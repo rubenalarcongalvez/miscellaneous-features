@@ -10,6 +10,7 @@
     "/payment-gateway",
     "/text-wrap-balance",
     "/transform",
+    "/transitions",
     "/viewport"
   ]
 }

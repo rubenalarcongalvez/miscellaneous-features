@@ -10,6 +10,7 @@ import { TextWrapBalanceComponent } from './views/text-wrap-balance/text-wrap-ba
 import { EmbedComponent } from './views/embed/embed.component';
 import { InputFileComponent } from './views/input-file/input-file.component';
 import { ViewportComponent } from './views/viewport/viewport.component';
+import { TransitionsComponent } from './views/transitions/transitions.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -23,4 +24,5 @@ export const routes: Routes = [
     {path: 'embed', component: EmbedComponent},
     {path: 'input-file', component: InputFileComponent},
     {path: 'viewport', component: ViewportComponent},
+    {path: 'transitions', component: TransitionsComponent},
 ];

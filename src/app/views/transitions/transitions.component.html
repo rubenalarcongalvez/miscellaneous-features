@@ -1,0 +1,13 @@
+<h2 class="text-blue-600">Transitions with properties of Angular as ngClass or ngStyle</h2>
+<hr>
+<p>It usually happens that if you make transitions with ngClass or ngStyles, they do not appear to work. <button (click)="hidden = !hidden">Show/Hide content</button></p>
+
+<main>
+    <section [ngClass]="{'state2': state2}" (click)="state2 = !state2">
+        Click me
+    </section>
+
+    <section class="hidden-section" [ngClass]="{'show-content': !hidden}">
+        Hey! I was hidden 💭
+    </section>
+</main>

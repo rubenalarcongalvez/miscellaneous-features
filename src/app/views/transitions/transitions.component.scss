@@ -1,0 +1,69 @@
+main {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+
+    section {
+        max-width: 90%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        user-select: none;
+        transition: all .5s;
+        cursor: pointer;
+
+        &.hidden-section {
+            /* We make sure we make the transition because we cannot with display */
+            border: none;
+            /* We can put it or not, depending if we want to count the size or not (if not, no vanish transition) */
+            flex-basis: 0; /* We can also do it with max-width or max-height if the display is block */
+            overflow: hidden;
+
+            opacity: 0;
+            transition: all 2s;
+        }
+    }
+}
+
+.state2 {
+    background-color: #1e40af;
+    color: white;
+}
+
+.show-content {
+    animation-name: show-content;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    cursor: default !important;
+
+    /* We show it */
+    flex-basis: auto !important; /* We can also do it with max-width or max-height if the display is block */
+    opacity: 1 !important;
+}
+
+@keyframes show-content {
+    0% {
+        background-color: red;
+        color: white;
+    }
+    25% {
+        background-color: blue;
+    }
+    50% {
+        background-color: yellow;
+        color: black;
+    }
+    75% {
+        background-color: lime;
+    }
+    100% {
+        background-color: black;
+        color: white;
+    }
+}
