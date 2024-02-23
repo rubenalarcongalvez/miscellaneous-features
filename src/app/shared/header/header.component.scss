@@ -14,13 +14,12 @@ ul {
         }
     
         &:hover {
-            font-weight: bold;
+            color: aqua;
         }
     }
 }
 
 li.active {
-    font-weight: bold;
     color: aqua;
 }
 
