@@ -25,4 +25,6 @@ export const routes: Routes = [
     {path: 'input-file', component: InputFileComponent},
     {path: 'viewport', component: ViewportComponent},
     {path: 'transitions', component: TransitionsComponent},
+
+    {path: '**', redirectTo: ''}
 ];
