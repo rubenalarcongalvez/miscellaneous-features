@@ -4,11 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /miscellaneous-features/",
+    "build": "ng build --output-path docs --base-href /miscellaneous-features/",
+    "postbuild": "node .\\post-build.js",
+    "build-des": "ng build --output-path docs --base-href /miscellaneous-features/ --configuration development",
+    "postbuild-des": "node .\\post-build.js",
+    "build-pro": "ng build --output-path docs --base-href /miscellaneous-features/ --configuration production",
+    "postbuild-pro": "node .\\post-build.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:miscellaneous-features": "node dist/miscellaneous-features/server/server.mjs",
-    "postbuild": "node .\\post-build.js"
+    "serve:ssr:miscellaneous-features": "node dist/miscellaneous-features/server/server.mjs"
   },
   "private": true,
   "dependencies": {
