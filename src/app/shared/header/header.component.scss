@@ -7,11 +7,6 @@ ul {
         cursor: pointer;
         transition: background-color 1s;
         padding: 1rem;
-        
-        &:not(&:first-child) {
-            flex-grow: 1;
-            min-height: 2rem;
-        }
     
         &:hover {
             color: aqua;
@@ -25,4 +20,34 @@ li.active {
 
 li.last {
     order: 999999;
+}
+
+.sidenavFullscreen {
+    width: 100%;
+
+    ul {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        grid-template-columns: repeat(4, 1fr);
+
+        @media(max-width: 1000px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media(max-width: 750px) {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+        @media(max-width: 650px) {
+            grid-template-columns: repeat(1, 1fr) !important;
+        }
+        @media(max-width: 450px) {
+            display: block;
+        }
+
+        li:first-child {
+            grid-column-start: 1;
+            grid-column-end: end;
+        }
+    }
 }

@@ -9,64 +9,64 @@ div {
     }
 }
 
-span[title="none"]:hover {}
+span[matTooltip="none"]:hover {}
 
-span[title="matrix(n,n,n,n,n,n)"]:hover {
+span[matTooltip="matrix(n,n,n,n,n,n)"]:hover {
     transform: matrix(0.866,0.7,-0.8,0.866,0,0);
 }
 
-span[title="translate(x, y)"]:hover {
+span[matTooltip="translate(x, y)"]:hover {
     // transform: translate(20px, -10px);
     translate: 20px -10px;
 }
 
-span[title="translateX(x)"]:hover {
+span[matTooltip="translateX(x)"]:hover {
     transform: translateX(-20px);
 }
 
-span[title="translateY(y)"]:hover {
+span[matTooltip="translateY(y)"]:hover {
     transform: translateY(-20px);
 }
 
-span[title="scale(x, y)"]:hover {
+span[matTooltip="scale(x, y)"]:hover {
     // transform: scale(2.50, 0.5);
     scale: 2.50 0.5;
 }
-span[title="scale(xy)"]:hover {
+span[matTooltip="scale(xy)"]:hover {
     // transform: scale(1.50);
     scale: 1.50;
 }
 
-span[title="scaleX(x)"]:hover {
+span[matTooltip="scaleX(x)"]:hover {
     transform: scaleX(1.50);
 }
 
-span[title="scaleY(y)"]:hover {
+span[matTooltip="scaleY(y)"]:hover {
     transform: scaleY(1.50);
 }
 
-span[title="rotate(angle)"]:hover {
+span[matTooltip="rotate(angle)"]:hover {
     // transform: rotate(45deg);
     rotate: 45deg;
 }
 
-span[title="rotateX(angle)"]:hover {
+span[matTooltip="rotateX(angle)"]:hover {
     transform: rotateX(180deg);
 }
 
-span[title="rotateY(angle)"]:hover {
+span[matTooltip="rotateY(angle)"]:hover {
     transform: rotateY(250deg);
 }
 
-span[title="skew(x-angle, y-angle)"]:hover {
+span[matTooltip="skew(x-angle, y-angle)"]:hover {
     transform: skew(30deg, -50deg);
 }
 
-span[title="skewX(angle)"]:hover {
+span[matTooltip="skewX(angle)"]:hover {
     transform: skewX(30deg);
 }
 
-span[title="skewY(angle)"]:hover {
+span[matTooltip="skewY(angle)"]:hover {
     transform: skewY(-50deg);
 }
 
