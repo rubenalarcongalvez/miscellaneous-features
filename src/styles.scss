@@ -15,3 +15,17 @@
 html, body { height: 100%; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+    padding: 5px;
+    background-color: blue;
+    border-radius: 5px;
+    border: 1px solid white;
+    outline: 1px solid blue;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(58, 58, 255);
+    }
+}

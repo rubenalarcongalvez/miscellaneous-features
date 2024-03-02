@@ -12,6 +12,7 @@ import { InputFileComponent } from './views/input-file/input-file.component';
 import { ViewportComponent } from './views/viewport/viewport.component';
 import { TransitionsComponent } from './views/transitions/transitions.component';
 import { BlurMessageComponent } from './views/blur-message/blur-message.component';
+import { CustomCursorComponent } from './views/custom-cursor/custom-cursor.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path: 'viewport', component: ViewportComponent},
     {path: 'transitions', component: TransitionsComponent},
     {path: 'blur-message', component: BlurMessageComponent},
+    {path: 'custom-cursor', component: CustomCursorComponent},
 
     {path: '**', redirectTo: ''}
 ];
