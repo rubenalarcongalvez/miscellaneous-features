@@ -11,6 +11,7 @@ import { EmbedComponent } from './views/embed/embed.component';
 import { InputFileComponent } from './views/input-file/input-file.component';
 import { ViewportComponent } from './views/viewport/viewport.component';
 import { TransitionsComponent } from './views/transitions/transitions.component';
+import { BlurMessageComponent } from './views/blur-message/blur-message.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path: 'input-file', component: InputFileComponent},
     {path: 'viewport', component: ViewportComponent},
     {path: 'transitions', component: TransitionsComponent},
+    {path: 'blur-message', component: BlurMessageComponent},
 
     {path: '**', redirectTo: ''}
 ];

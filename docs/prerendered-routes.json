@@ -2,6 +2,7 @@
   "routes": [
     "/",
     "/basic-accordion",
+    "/blur-message",
     "/clamp",
     "/embed",
     "/glass-effect",
