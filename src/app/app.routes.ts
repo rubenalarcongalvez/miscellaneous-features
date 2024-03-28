@@ -16,6 +16,7 @@ import { CustomCursorComponent } from './views/custom-cursor/custom-cursor.compo
 import { BoxShadowVsDropShadowComponent } from './views/box-shadow-vs-drop-shadow/box-shadow-vs-drop-shadow.component';
 import { DownloadFilesComponent } from './views/download-files/download-files.component';
 import { FieldSizingComponent } from './views/field-sizing/field-sizing.component';
+import { TextWithVideoOrImageBackgroundComponent } from './views/text-with-video-or-image-background/text-with-video-or-image-background.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -35,6 +36,7 @@ export const routes: Routes = [
     {path: 'box-shadow-vs-drop-shadow', component: BoxShadowVsDropShadowComponent},
     {path: 'download-files', component: DownloadFilesComponent},
     {path: 'field-sizing', component: FieldSizingComponent},
+    {path: 'text-with-video-or-image-background', component: TextWithVideoOrImageBackgroundComponent},
 
     {path: '**', redirectTo: ''}
 ];

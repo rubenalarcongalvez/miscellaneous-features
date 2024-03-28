@@ -13,6 +13,7 @@
     "/input-file",
     "/normalize-strings",
     "/payment-gateway",
+    "/text-with-video-or-image-background",
     "/text-wrap-balance",
     "/transform",
     "/transitions",
