@@ -1,0 +1,18 @@
+<main>
+    <p>
+        Hey, <input type="text">. Nice to meet you. Let's get some info on your car.
+    </p>
+    <p>
+        <select name="year" id="year">
+            <option *ngFor="let year of years" [value]="year">{{year}}</option>
+        </select>
+        <select name="brand" id="brand">
+            <option value="volvo">Volvo</option>
+            <option value="ford">Ford</option>
+            <option value="bmw">BMW</option>
+            <option value="mercedes">Mercedes Benz</option>
+        </select>
+    </p>
+    <p>Any notes?</p>
+    <textarea name="notes" id="notes" rows="3" class="w-full leading-normal" [spellcheck]="false"></textarea>
+</main>

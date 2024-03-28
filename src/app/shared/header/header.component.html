@@ -9,7 +9,7 @@
             </button>
         </mat-toolbar>
     
-        <mat-sidenav #sidenav [mode]="sidenavFullscreen ? 'over' : 'side'" [fixedInViewport]="true" class="p-5 !bg-blue-800 !text-white" [ngClass]="{'sidenavFullscreen': sidenavFullscreen}">
+        <mat-sidenav #sidenav [mode]="sidenavFullscreen ? 'over' : 'side'" [fixedInViewport]="true" class="p-5 !bg-blue-800 !text-white" [ngClass]="{'sidenavFullscreen': sidenavFullscreen}" [autoFocus]="false">
             @if (sidenavFullscreen) {
                 <button mat-icon-button (click)="sidenav.close(); sidenavFullscreen = false" class="!float-end close"><mat-icon>close</mat-icon></button>
             } @else {
@@ -32,6 +32,8 @@
                 <li routerLink="/blur-message" routerLinkActive="active">Blur message</li>
                 <li routerLink="/custom-cursor" routerLinkActive="active">Custom cursor</li>
                 <li routerLink="/box-shadow-vs-drop-shadow" routerLinkActive="active">Box shadow vs Drop shadow</li>
+                <li routerLink="/download-files" routerLinkActive="active">Download files</li>
+                <li routerLink="/field-sizing" routerLinkActive="active">Field sizing</li>
             </ul>
         </mat-sidenav>
     </mat-sidenav-container>

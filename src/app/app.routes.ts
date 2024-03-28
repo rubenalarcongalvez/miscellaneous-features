@@ -14,6 +14,8 @@ import { TransitionsComponent } from './views/transitions/transitions.component'
 import { BlurMessageComponent } from './views/blur-message/blur-message.component';
 import { CustomCursorComponent } from './views/custom-cursor/custom-cursor.component';
 import { BoxShadowVsDropShadowComponent } from './views/box-shadow-vs-drop-shadow/box-shadow-vs-drop-shadow.component';
+import { DownloadFilesComponent } from './views/download-files/download-files.component';
+import { FieldSizingComponent } from './views/field-sizing/field-sizing.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -31,6 +33,8 @@ export const routes: Routes = [
     {path: 'blur-message', component: BlurMessageComponent},
     {path: 'custom-cursor', component: CustomCursorComponent},
     {path: 'box-shadow-vs-drop-shadow', component: BoxShadowVsDropShadowComponent},
+    {path: 'download-files', component: DownloadFilesComponent},
+    {path: 'field-sizing', component: FieldSizingComponent},
 
     {path: '**', redirectTo: ''}
 ];
