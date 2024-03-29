@@ -17,6 +17,7 @@
     "/text-wrap-balance",
     "/transform",
     "/transitions",
-    "/viewport"
+    "/viewport",
+    "/word-break"
   ]
 }

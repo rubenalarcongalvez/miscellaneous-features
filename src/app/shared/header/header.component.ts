@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MaterialModule } from '../../page/style/material/material.module';
 import { CommonModule } from '@angular/common';
 
@@ -12,4 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   sidenavFullscreen: boolean = false;
+
+  constructor(private router: Router) {}
+
+  get activeTab(): string {
+    return this.router.url.replaceAll('-', ' ').replace('/', '');
+  }
 }

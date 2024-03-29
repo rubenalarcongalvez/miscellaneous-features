@@ -1,8 +1,12 @@
 <header>
     <mat-sidenav-container autosize>
-        <mat-toolbar class="!bg-blue-800 !text-white">
+        <mat-toolbar class="!bg-blue-800 text-resize">
             <button mat-icon-button (click)="sidenav.toggle();"><mat-icon>menu</mat-icon></button>
             <span routerLink="/" class="cursor-pointer">Miscellaneous Features</span>
+            @if(activeTab) {
+                <span>&nbsp;-&nbsp;</span>
+            }
+            <span class="text-cyan-400 break-words text-wrap capitalize">{{activeTab}}</span>
             <span class="flex-1"></span>
             <button mat-icon-button matTooltip="Fullscreen menu" (click)="sidenavFullscreen = true; sidenav.toggle()">
                 <mat-icon>fullscreen</mat-icon>
@@ -35,6 +39,7 @@
                 <li routerLink="/download-files" routerLinkActive="active">Download files</li>
                 <li routerLink="/field-sizing" routerLinkActive="active">Field sizing</li>
                 <li routerLink="/text-with-video-or-image-background" routerLinkActive="active">Text with video/image background</li>
+                <li routerLink="/word-break" routerLinkActive="active">Word break</li>
             </ul>
         </mat-sidenav>
     </mat-sidenav-container>

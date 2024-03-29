@@ -17,6 +17,7 @@ import { BoxShadowVsDropShadowComponent } from './views/box-shadow-vs-drop-shado
 import { DownloadFilesComponent } from './views/download-files/download-files.component';
 import { FieldSizingComponent } from './views/field-sizing/field-sizing.component';
 import { TextWithVideoOrImageBackgroundComponent } from './views/text-with-video-or-image-background/text-with-video-or-image-background.component';
+import { WordBreakComponent } from './views/word-break/word-break.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -37,6 +38,7 @@ export const routes: Routes = [
     {path: 'download-files', component: DownloadFilesComponent},
     {path: 'field-sizing', component: FieldSizingComponent},
     {path: 'text-with-video-or-image-background', component: TextWithVideoOrImageBackgroundComponent},
+    {path: 'word-break', component: WordBreakComponent},
 
     {path: '**', redirectTo: ''}
 ];

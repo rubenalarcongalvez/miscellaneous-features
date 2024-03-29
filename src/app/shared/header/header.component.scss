@@ -22,6 +22,22 @@ li.last {
     order: 999999;
 }
 
+.text-resize {
+    color: white;
+    @media(max-width: 550px) {
+        font-size: 16px
+    }
+    @media(max-width: 400px) {
+        font-size: 14px
+    }
+    @media(max-width: 300px) {
+        font-size: 10px
+    }
+    @media(max-width: 250px) {
+        font-size: 8px
+    }
+}
+
 .sidenavFullscreen {
     width: 100%;
 
