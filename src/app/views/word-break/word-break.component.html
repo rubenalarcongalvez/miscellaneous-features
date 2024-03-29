@@ -1,1 +1,46 @@
-<p>word-break works!</p>
+<main class="flex flex-col items-center gap-2">
+    <h1>Wrap me</h1>
+    <section>
+        <h3><code>text-overflow: ellipsis</code></h3>
+        <p>To put <code>...</code> at the end of the word/sentence cutting it to max content</p>
+        <article>
+            <p id="ellipsis">Verylongwordthatitissobigthatihavetoresizeitorbreakitsoitshouldlookbetter</p>
+        </article>
+    </section>
+    <section>
+        <h3><code>word-wrap: break-word</code></h3>
+        <p>It breaks the word when the width occupied is higher than the available one</p>
+        <p>It can be combined with <code>word-break</code></p>
+        <article>
+            <p id="ww-break-word">Verylongwordthatitissobigthatihavetoresizeitorbreakitsoitshouldlookbetter</p>
+        </article>
+    </section>
+    <section>
+        <h3><code>word-break: break-all</code></h3>
+        <p>It prevents overflow of the word and break it anywhere to move to the next line.</p>
+        <article>
+            <p id="wb-break-all">Verylongwordthatitissobigthatihavetoresizeitorbreakitsoitshouldlookbetter</p>
+        </article>
+    </section>
+    <section>
+        <h3><code>word-break: break-word</code></h3>
+        <p>It prevents overflow of the word and break it on arbitrary points (syllable) to move to the next line.</p>
+        <article>
+            <p id="wb-break-word">Verylongwordthatitissobigthatihavetoresizeitorbreakitsoitshouldlookbetter</p>
+        </article>
+    </section>
+    <section>
+        <h3>HTML <code>&lt;wbr/&gt;</code></h3>
+        <p>To define a break in the specific sites you choose</p>
+        <article>
+            <p>Very<wbr/>long<wbr/>word<wbr/>thatitissobig<wbr/>thatihaveto<wbr/>resizeit<wbr/>or<wbr/>break<wbr/>itsoitshouldlook<wbr/>better</p>
+        </article>
+    </section>
+    <section>
+        <h3>HTML <code>&amp;shy;</code></h3>
+        <p>To define a break in the specific sites you choose, but it adds <code>-</code> to break it</p>
+        <article>
+            <p>Very&shy;long&shy;word&shy;thatitissobig&shy;thatihaveto&shy;resizeit&shy;or&shy;break&shy;itsoitshouldlook&shy;better</p>
+        </article>
+    </section>
+</main>

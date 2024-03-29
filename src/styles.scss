@@ -31,6 +31,13 @@ button, a[type=button] {
     }
 }
 
+code {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 /* Custom scrollbar */
 /* We can set a custom scrollbar for the main scroll */
 html {
