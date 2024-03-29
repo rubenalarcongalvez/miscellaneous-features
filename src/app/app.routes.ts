@@ -18,6 +18,7 @@ import { DownloadFilesComponent } from './views/download-files/download-files.co
 import { FieldSizingComponent } from './views/field-sizing/field-sizing.component';
 import { TextWithVideoOrImageBackgroundComponent } from './views/text-with-video-or-image-background/text-with-video-or-image-background.component';
 import { WordBreakComponent } from './views/word-break/word-break.component';
+import { LazyLoadingComponent } from './views/lazy-loading/lazy-loading.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -39,6 +40,7 @@ export const routes: Routes = [
     {path: 'field-sizing', component: FieldSizingComponent},
     {path: 'text-with-video-or-image-background', component: TextWithVideoOrImageBackgroundComponent},
     {path: 'word-break', component: WordBreakComponent},
+    {path: 'lazy-loading', component: LazyLoadingComponent},
 
     {path: '**', redirectTo: ''}
 ];
