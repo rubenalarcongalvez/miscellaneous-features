@@ -30,3 +30,67 @@ button, a[type=button] {
         background-color: rgb(58, 58, 255);
     }
 }
+
+/* Custom scrollbar */
+/* We can set a custom scrollbar for the main scroll */
+html {
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+    ::-webkit-scrollbar:window-inactive {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track-piece {
+        background-color: #369;
+        background-clip: content-box;
+        border-radius: 6px;
+        border: solid 4px transparent;
+    }
+    ::-webkit-scrollbar-track-piece:decrement {
+        background: orange;
+        background-clip: content-box;
+        border: solid 4px transparent;
+    }
+    ::-webkit-scrollbar-button:horizontal:increment {
+        background: transparent url('assets/arrow_right.png') no-repeat center center;
+    }
+    ::-webkit-scrollbar-thumb  {
+        height: 10px;
+        width: 4px;
+        background-color: #3359d3;
+        box-shadow: 0 3px 6px -2px rgba(51,0,51,0.5);
+    }
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+    ::-webkit-resizer {
+        background: transparent url('assets/expandIcon.png') no-repeat -1px -1px;
+    }
+    ::-webkit-scrollbar-track-piece:no-button {
+        background-color: red;
+    }
+
+    /* We can set a custom scrollbar for specific scrolls as body or any divs with overflow */
+    body {
+        ::-webkit-scrollbar-track {
+          border-top: none;
+          border-bottom: none;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-button:vertical:start:decrement {
+          background: transparent url('assets/arrow_up.png') no-repeat center center;
+        }
+        ::-webkit-scrollbar-button:vertical:end:decrement {
+        background: transparent url('assets/arrow_up.png') no-repeat center center;
+        }
+        ::-webkit-scrollbar-button:vertical:end:increment {
+        background: transparent url('assets/arrow_down.png') no-repeat center center;
+        }
+        ::-webkit-scrollbar-button:horizontal:decrement {
+        background: transparent url('assets/arrow_left.png') no-repeat center center;
+        }
+    }
+}
