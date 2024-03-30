@@ -8,6 +8,7 @@
             }
             <span class="text-cyan-400 break-words text-wrap capitalize">{{activeTab}}</span>
             <span class="flex-1"></span>
+            <mat-slide-toggle hideIcon matTooltip="Dark mode" [checked]="checkedDarkMode" (change)="toggleDarkScheme()"></mat-slide-toggle>
             <button mat-icon-button matTooltip="Fullscreen menu" (click)="sidenavFullscreen = true; sidenav.toggle()">
                 <mat-icon>fullscreen</mat-icon>
             </button>

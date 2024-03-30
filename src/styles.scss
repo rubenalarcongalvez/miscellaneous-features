@@ -32,7 +32,7 @@ button, a[type=button] {
 }
 
 code {
-    background-color: gray;
+    background-color: rgb(50, 50, 50);
     color: white;
     border-radius: 5px;
     padding: 5px;
@@ -100,4 +100,35 @@ html {
         background: transparent url('assets/arrow_left.png') no-repeat center center;
         }
     }
+}
+
+/* Light and dark scheme */
+/* We can also choose to put light dark as a 3rd option to let the system decide */
+/* We have commented this because we handle it in the header with the toggle button */
+// :root {
+//     color-scheme: light dark;
+// }
+
+code {
+    /*=======================================================================================
+    =            There are 2 forms of setting specific styles to specific things            =
+    ========================================================================================*/
+    /* The newest one (if it does not work, try the traditional one) */
+    color: light-dark(white, crimson);
+
+    /* The traditional one (less simplified but more compatible) */
+    /* WARNING: It only detects the system color-scheme, not the one in the web */
+    /* To do so in the web, we ought to use JavaScript */
+    @media (prefers-color-scheme: dark) {
+        color: crimson;
+    }
+    /*=====  Final of There are 2 forms of setting specific styles to specific things  ======*/
+}
+
+header {
+    color-scheme: only light;
+}
+
+footer {
+    color-scheme: only dark;
 }
