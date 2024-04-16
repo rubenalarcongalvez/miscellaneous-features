@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DynamicInputDirective } from '../../page/directives/dynamic-input-width.directive';
+import { DynamicInputDirective } from '../../shared/directives/dynamic-input-width.directive';
 
 @Component({
   selector: 'app-viewport',

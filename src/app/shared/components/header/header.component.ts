@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { MaterialModule } from '../../page/style/material/material.module';
+import { MaterialModule } from '../../../shared/style/material.module';
 import { CommonModule } from '@angular/common';
-import { GlobalService } from '../../page/services/global.service';
 
 @Component({
   selector: 'app-header',

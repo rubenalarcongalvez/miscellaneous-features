@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from '../../page/style/material/material.module';
+import { MaterialModule } from '../../shared/style/material.module';
 
 @Component({
   selector: 'app-box-shadow-vs-drop-shadow',
