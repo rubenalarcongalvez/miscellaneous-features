@@ -10,8 +10,8 @@ import { ExampleComponentComponent } from './example-component.component';
     ExampleDirectiveDirective
   ],
   exports: [
-    //Es importante no exportar CommonModule o cualquier modulo que no queramos que nos sugiera extra, porque eso ya lo importaremos standalone en el otro componente donde importemos el modulo
-    //Solo importaremos lo necesario, en este caso el componente y las directivas propias del mismo
+    // It's important not to export CommonModule or any module that we don't want to suggest to us additionally, because we will already import it standalone in the other component where we import the module.
+    // We will only import what is necessary, in this case the component and its own directives.
     ExampleComponentComponent,
     ExampleDirectiveDirective
   ]
