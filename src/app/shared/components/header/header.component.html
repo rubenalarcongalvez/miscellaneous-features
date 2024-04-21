@@ -2,7 +2,8 @@
     <mat-sidenav-container autosize>
         <mat-toolbar class="!bg-blue-800 text-resize">
             <button mat-icon-button (click)="sidenav.toggle();"><mat-icon>menu</mat-icon></button>
-            <span routerLink="/" class="cursor-pointer">Miscellaneous Features</span>
+            <span routerLink="/" class="cursor-pointer full-title">Miscellaneous Features</span>
+            <span routerLink="/" class="cursor-pointer collapsed-title">Misc.</span>
             @if(activeTab) {
                 <span>&nbsp;-&nbsp;</span>
             }

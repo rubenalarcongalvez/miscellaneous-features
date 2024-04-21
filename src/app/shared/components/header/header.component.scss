@@ -67,3 +67,15 @@ li.last {
         }
     }
 }
+
+.full-title {
+    @media(max-width: 640px) {
+        display: none;
+    }
+}
+
+.collapsed-title {
+    @media(min-width: 640px) {
+        display: none;
+    }
+}
