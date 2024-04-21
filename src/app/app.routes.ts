@@ -19,6 +19,7 @@ import { FieldSizingComponent } from './views/field-sizing/field-sizing.componen
 import { TextWithVideoOrImageBackgroundComponent } from './views/text-with-video-or-image-background/text-with-video-or-image-background.component';
 import { WordBreakComponent } from './views/word-break/word-break.component';
 import { LazyLoadingComponent } from './views/lazy-loading/lazy-loading.component';
+import { ContentToComponentComponent } from './views/content-to-component/content-to-component.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -41,6 +42,7 @@ export const routes: Routes = [
     {path: 'text-with-video-or-image-background', component: TextWithVideoOrImageBackgroundComponent},
     {path: 'word-break', component: WordBreakComponent},
     {path: 'lazy-loading', component: LazyLoadingComponent},
+    {path: 'content-to-component', component: ContentToComponentComponent},
 
     {path: '**', redirectTo: ''}
 ];

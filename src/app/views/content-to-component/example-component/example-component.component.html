@@ -1,0 +1,26 @@
+<section class="border-solid border-2 rounded border-blue-700 p-3" [ngClass]="{'h-full': fullHeight}">
+  <!-- We can put an input -->
+  <h1>{{ header }}</h1>
+  
+  <!-- Or we can use ng-content as well -->
+  <ng-content></ng-content>
+
+  <!-- We can put various ng-content depending on CSS attributes we set -->
+  <ng-content select="h3"></ng-content> <!-- h3 selector -->
+  <ng-content select="other-example"></ng-content> <!-- Component <app-other-example></app-other-example> -->
+  <ng-content select="[example]"></ng-content> <!-- Element with the property example. I.e <p example></p> -->
+  <ng-content select="input[type=text]"></ng-content> <!-- Input of type text -->
+  <ng-content select="#generic-id"></ng-content> <!-- Element with id generic-id -->
+  <ng-content select="p.disclamer"></ng-content> <!-- p selector with the class .disclamer -->
+  <ng-content select=".disclamer, h3, other-example, .hey"></ng-content> <!-- Content catched from one of the selectors in this list, but be aware we cannot use the selectors in the list more than once (i.e. if we use the .hey, we cannot use the others selectors as h3) -->
+
+  <ng-content select="example2"></ng-content> <!-- We will refer the component <app-example2></app-example2> if exists, if not, the element with the property ngProjectAs="example2" -->
+
+  @if (expanded) {
+    <ng-content select="[pre-loaded-content]"></ng-content>
+    <!-- Everything we put *ngTemplateOutlet="detailsTemplate!" will load normally, not pre-load -->
+    <!-- Additionally to selects, we use *ngTemplateOutlet to refer our ng-template with an id (#ID) -->
+    <ng-content *ngTemplateOutlet="handleLoadTemplateExample!" select="#handleLoadTemplateExample"></ng-content>
+    <ng-content *ngTemplateOutlet="secondTemplateExample!" select="#secondTemplateExample"></ng-content>
+  }
+</section>

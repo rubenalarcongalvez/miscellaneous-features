@@ -1,1 +1,61 @@
-<p>content-to-component works!</p>
+<main class="grid sm:grid-cols-2 gap-2">
+  <app-example-component header="Basic usage">
+    <p>We can use inputs as well appart of content we put inside. As we prefer, but inputs and outputs are usually used to be modified and not to put HTML content.</p>
+    <hr>
+    <p>I've put this content inside of my component, in which I put the tag <code>ng-content</code> so I can choose where to put it inside my component.</p>
+    <br>
+    <p><code>DISCLAMER</code> If we do not put anything more in the <code>ng-content</code> tag, the content will pre-load, even if the component has in example, <code>ngIf</code>, the content will be loaded in background, so it could not be the best option if we want more complex content inside our component.</p>
+  </app-example-component>
+  
+  <app-example-component header="Select various ng-content">
+    <p>We can put different <code>ng-content</code> with the property <code>select="<span class="text-blue-500">CSS selector</span>"</code>.</p>
+    <hr>
+    <p class="text-blue-500">In example:</p>
+    <h3>I am refered with the <code>select</code> property with the selector <code>select="h3"</code></h3> <!-- It cannot be shown because the component just refer the last one, and it is refering the one with .hey class -->
+    <app-other-example></app-other-example>
+    <p example>I am refered with the <code>example</code> property</p>
+    <input type="text" value="I am refered with an input of type=text" class="w-full px-2 text-blue-500">
+    <p id="generic-id">I am refered with the ID: <code>generic-id</code></p>
+    <p class="hey">I am refered with the class <code>hey</code>, but I can be refered as well with <code>.disclamer, a heading 3 or the component other-example</code></p>
+    <p class="disclamer"><br><code>DISCLAMER</code> The selector we refer, must be on the 1st level, if not, we cannot put it. In example, if we refer an <code>ul</code>, the <code>li</code> elements inside will not be shown (I am refered with the <code>select</code> property with the selector <code>select="p.disclamer"</code>).</p>
+  </app-example-component>  
+
+  <app-example-component header="Refer ng-content with alias to components">
+    <p>To refer a component with a different selector as the default one, we can use the property <code>ngProjectAs</code>. I.e, inside of <code>app-other-example</code>, we put the property: <code>ngProjectAs="example2"</code> so we can refer the component again</p>
+    <hr>
+    <!-- No matter where we state the things, the order follows as put in the component app-example-component -->
+    <app-other-example ngProjectAs="example2" selectorName="ngProjectAs='example2'"></app-other-example>
+    <app-other-example></app-other-example>
+  </app-example-component>
+
+  <app-example-component [expanded]="exampleComponent.expanded" header="Handle pre-load of all things and load just the elements we want, not all (improving the speed)">
+    <p>If we do not put anything more in the <code>ng-content</code> tag, the content will pre-load, even if the component has in example, <code>ngIf</code>, the content will be loaded in background, so it could not be the best option if we want more complex content inside our component.</p>
+    <p>We can handle it with <code>ContentChild</code> and <code>ngTemplate</code></p>
+    <hr>
+    <div class="flex justify-center">
+      <button (click)="exampleComponent.toggleExpanded();">{{exampleComponent.expanded ? 'Hide' : 'Show'}} content</button>
+    </div>
+    <!-- We have to put template to load content normally, if not, content with *ngTemplateOutlet="detailsTemplate!" will not load -->
+    <ng-template #handleLoadTemplateExample>
+      <p pre-loaded-content>I loaded at the beginning of the load so I will cause you be a bit more slow, no matter you put <code>ngIf</code> in the component to handle me.</p>
+      <app-example-component header="Hey!" [fullHeight]="false">
+        <p>I loaded right now, you can handle me well.</p>
+      </app-example-component>
+    </ng-template>
+
+    <ng-template #secondTemplateExample>
+      <p class="text-blue-700">We can also put various <code>ng-template</code> with different <code>ContentChild</code></p>
+    </ng-template>
+  </app-example-component>
+
+</main>
+
+<br>
+
+<app-example-component header="Creating directives so the IDE recommend you to use them">
+  <p>It make easier to the developer to refer all elements because we just have it recommended what we have to put. So they don't have to remember every single property or class (selector) to refer anything, it will be suggested by the IDE.</p>
+  <hr>
+  <!-- To create a directive, we should create it inside the component if not global to have it more organized. I.e: ng g directive views/content-to-component/directives/exampleDirective -->
+  <!-- After creating them, we should add them to the module of the component to import it all together -->
+  <p exampleDirective>The directives should be created (if not used globally) inside the component we are using as template. I am refered with the <code>exampleDirective</code> property (which is a directive I created).</p>
+</app-example-component>
