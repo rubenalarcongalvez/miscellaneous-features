@@ -1,5 +1,5 @@
-<header>
-    <mat-sidenav-container autosize>
+<header class="!bg-blue-800">
+    <mat-sidenav-container autosize class="container m-auto">
         <mat-toolbar class="!bg-blue-800 text-resize">
             <button mat-icon-button (click)="sidenav.toggle();"><mat-icon>menu</mat-icon></button>
             <span routerLink="/" class="cursor-pointer full-title">Miscellaneous Features</span>
@@ -14,39 +14,39 @@
                 <mat-icon>fullscreen</mat-icon>
             </button>
         </mat-toolbar>
-    
-        <mat-sidenav #sidenav [mode]="sidenavFullscreen ? 'over' : 'side'" [fixedInViewport]="true" class="p-5 !bg-blue-800 !text-white" [ngClass]="{'sidenavFullscreen': sidenavFullscreen}" [autoFocus]="false">
-            @if (sidenavFullscreen) {
-                <button mat-icon-button (click)="sidenav.close(); sidenavFullscreen = false" class="!float-end close"><mat-icon>close</mat-icon></button>
-            } @else {
-                <button mat-icon-button (click)="sidenav.close(); sidenavFullscreen = false" class="!float-end close"><mat-icon>arrow_back_ios</mat-icon></button>
-            }
-            <ul (click)="sidenav.close(); sidenavFullscreen = false">
-                <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="pi pi-home basis-full"></li>
-                <!-- TODO: Payment Gateway -->
-                <!-- <li routerLink="/payment-gateway" routerLinkActive="active" class="last">Payment Gateway</li> -->
-                <li routerLink="/normalize-strings" routerLinkActive="active">Normalize Strings</li>
-                <li routerLink="/basic-accordion" routerLinkActive="active">Basic Accordion</li>
-                <li routerLink="/glass-effect" routerLinkActive="active">Glass Effect</li>
-                <li routerLink="/transform" routerLinkActive="active">Transform</li>
-                <li routerLink="/clamp" routerLinkActive="active">Clamp</li>
-                <li routerLink="/text-wrap-balance" routerLinkActive="active">Text wrap balance</li>
-                <li routerLink="/embed" routerLinkActive="active">Embed content</li>
-                <li routerLink="/input-file" routerLinkActive="active">Input file</li>
-                <li routerLink="/viewport" routerLinkActive="active">Viewport</li>
-                <li routerLink="/transitions" routerLinkActive="active">Display transitions</li>
-                <li routerLink="/blur-message" routerLinkActive="active">Blur message</li>
-                <li routerLink="/custom-cursor" routerLinkActive="active">Custom cursor</li>
-                <li routerLink="/box-shadow-vs-drop-shadow" routerLinkActive="active">Box shadow vs Drop shadow</li>
-                <li routerLink="/download-files" routerLinkActive="active">Download files</li>
-                <li routerLink="/field-sizing" routerLinkActive="active">Field sizing</li>
-                <li routerLink="/text-with-video-or-image-background" routerLinkActive="active">Text with video/image background</li>
-                <li routerLink="/word-break" routerLinkActive="active">Word break</li>
-                <li routerLink="/lazy-loading" routerLinkActive="active">Lazy loading</li>
-                <li routerLink="/content-to-component" routerLinkActive="active">Content to component</li>
-            </ul>
-        </mat-sidenav>
     </mat-sidenav-container>
+    
+    <mat-sidenav #sidenav [mode]="sidenavFullscreen ? 'over' : 'side'" [fixedInViewport]="true" class="p-5 !bg-blue-800 !text-white" [ngClass]="{'sidenavFullscreen': sidenavFullscreen}" [autoFocus]="false">
+        @if (sidenavFullscreen) {
+            <button mat-icon-button (click)="sidenav.close(); sidenavFullscreen = false" class="!float-end close"><mat-icon>close</mat-icon></button>
+        } @else {
+            <button mat-icon-button (click)="sidenav.close(); sidenavFullscreen = false" class="!float-end close"><mat-icon>arrow_back_ios</mat-icon></button>
+        }
+        <ul (click)="sidenav.close(); sidenavFullscreen = false">
+            <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="pi pi-home basis-full"></li>
+            <!-- TODO: Payment Gateway -->
+            <!-- <li routerLink="/payment-gateway" routerLinkActive="active" class="last">Payment Gateway</li> -->
+            <li routerLink="/normalize-strings" routerLinkActive="active">Normalize Strings</li>
+            <li routerLink="/basic-accordion" routerLinkActive="active">Basic Accordion</li>
+            <li routerLink="/glass-effect" routerLinkActive="active">Glass Effect</li>
+            <li routerLink="/transform" routerLinkActive="active">Transform</li>
+            <li routerLink="/clamp" routerLinkActive="active">Clamp</li>
+            <li routerLink="/text-wrap-balance" routerLinkActive="active">Text wrap balance</li>
+            <li routerLink="/embed" routerLinkActive="active">Embed content</li>
+            <li routerLink="/input-file" routerLinkActive="active">Input file</li>
+            <li routerLink="/viewport" routerLinkActive="active">Viewport</li>
+            <li routerLink="/transitions" routerLinkActive="active">Display transitions</li>
+            <li routerLink="/blur-message" routerLinkActive="active">Blur message</li>
+            <li routerLink="/custom-cursor" routerLinkActive="active">Custom cursor</li>
+            <li routerLink="/box-shadow-vs-drop-shadow" routerLinkActive="active">Box shadow vs Drop shadow</li>
+            <li routerLink="/download-files" routerLinkActive="active">Download files</li>
+            <li routerLink="/field-sizing" routerLinkActive="active">Field sizing</li>
+            <li routerLink="/text-with-video-or-image-background" routerLinkActive="active">Text with video/image background</li>
+            <li routerLink="/word-break" routerLinkActive="active">Word break</li>
+            <li routerLink="/lazy-loading" routerLinkActive="active">Lazy loading</li>
+            <li routerLink="/content-to-component" routerLinkActive="active">Content to component</li>
+        </ul>
+    </mat-sidenav>
 </header>
 
   
