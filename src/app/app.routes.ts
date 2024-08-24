@@ -20,11 +20,14 @@ import { TextWithVideoOrImageBackgroundComponent } from './views/text-with-video
 import { WordBreakComponent } from './views/word-break/word-break.component';
 import { LazyLoadingComponent } from './views/lazy-loading/lazy-loading.component';
 import { ContentToComponentComponent } from './views/content-to-component/content-to-component.component';
+import { AdsComponent } from './views/ads/ads.component';
+import { DisplayAnimationsComponent } from './views/display-animations/display-animations.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
-    {path: 'normalize-strings', component: NormalizeStringsComponent},
     {path: 'payment-gateway', component: PaymentGatewayComponent},
+    {path: 'ads', component: AdsComponent},
+    {path: 'normalize-strings', component: NormalizeStringsComponent},
     {path: 'basic-accordion', component: BasicAccordionComponent},
     {path: 'glass-effect', component: GlassEffectComponent},
     {path: 'transform', component: TransformComponent},
@@ -43,6 +46,7 @@ export const routes: Routes = [
     {path: 'word-break', component: WordBreakComponent},
     {path: 'lazy-loading', component: LazyLoadingComponent},
     {path: 'content-to-component', component: ContentToComponentComponent},
+    {path: 'display-animations', component: DisplayAnimationsComponent},
 
     {path: '**', redirectTo: ''}
 ];

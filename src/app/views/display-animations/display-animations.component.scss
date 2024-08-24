@@ -1,0 +1,18 @@
+/* This is how we make it */
+.showContent {
+    display: block;
+    transition: scale .25s ease, opacity 1.5s ease;
+
+    /* Comment this to see the difference */
+    @starting-style {
+        scale: 0;
+        opacity: 0;
+    }
+}
+
+.hiddenContent {
+    display: none;
+    scale: 0;
+    opacity: 0;
+    transition: scale 1.5s ease, opacity 1s ease, display 1.5s allow-discrete; //Remove the property "allow-discrete" to see the difference
+}

@@ -1,12 +1,14 @@
 {
   "routes": [
     "/",
+    "/ads",
     "/basic-accordion",
     "/blur-message",
     "/box-shadow-vs-drop-shadow",
     "/clamp",
     "/content-to-component",
     "/custom-cursor",
+    "/display-animations",
     "/download-files",
     "/embed",
     "/field-sizing",

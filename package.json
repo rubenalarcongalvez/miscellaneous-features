@@ -1,6 +1,6 @@
 {
   "name": "miscellaneous-features",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -29,6 +29,7 @@
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.7",
     "express": "^4.18.2",
+    "miscellaneous-features": "file:",
     "primeicons": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
