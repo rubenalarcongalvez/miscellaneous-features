@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 @import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
 * {
     margin: 0;
@@ -16,19 +18,18 @@ html, body { height: 100%; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+::selection {
+    background-color: orangered;
+    color: white;
+}
+
 button, a[type=button] {
     text-decoration: none;
     padding: 5px;
-    background-color: blue;
     border-radius: 5px;
     border: 1px solid white;
-    outline: 1px solid blue;
     color: white;
     cursor: pointer;
-
-    &:hover {
-        background-color: rgb(58, 58, 255);
-    }
 }
 
 code {

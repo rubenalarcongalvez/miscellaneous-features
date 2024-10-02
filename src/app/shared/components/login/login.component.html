@@ -1,0 +1,82 @@
+<div>
+    <h1 class="text-blue-700 w-full text-center m-1">Register</h1>
+    <section class="card flex justify-center gap-2 flex-wrap w-full max-w-screen-sm">
+        <p-button severity="contrast" class="w-full" (onClick)="visiblePopup.set(true); visibleRegisterPopup = true" label="Email Registration" styleClass="w-full d-flex gap-2 flex-start" icon="pi pi-envelope"/>
+    </section>
+    
+    <h1 class="text-blue-700 w-full text-center m-1">Log in</h1>
+    <section class="card flex justify-center gap-2 flex-wrap w-full max-w-screen-sm">
+        <p-button (onClick)="visiblePopup.set(true); visibleLoginPopup = true" label="Email login" styleClass="d-flex gap-2 flex-start" icon="pi pi-envelope"/>
+    </section>
+    <h3 class="text-black w-full text-center m-1">You can also log in with</h3>
+    <section class="card flex justify-center gap-2 flex-wrap w-full max-w-screen-sm">
+        <p-button icon="pi pi-google" styleClass="bg-white text-black hover:bg-gray-100" class="outline outline-1 outline-solid outline-gray-200 rounded" matTooltip="Google">
+            <ng-template pTemplate="icon">
+                <img (click)="socialLogin(socialLoginMethods.Google)" src="assets/google-icon.png" width="20" height="20" alt="Google">
+            </ng-template>
+        </p-button>
+        <p-button (click)="socialLogin(socialLoginMethods.Facebook)" icon="pi pi-facebook" matTooltip="Facebook"/>
+        <p-button (click)="socialLogin(socialLoginMethods.Github)" icon="pi pi-github" severity="contrast" matTooltip="Github"/>
+    </section>
+</div>
+
+<!-- Popup -->
+<p-dialog 
+    header="Header" 
+    [(visible)]="visiblePopupVariable" 
+    [modal]="true" 
+    [style]="{ width: '25rem', minWidth: '25rem', minHeight: '215px' }"
+    [dismissableMask]="true"
+    [resizable]="true"
+    (onHide)="reset()"
+>
+        <ng-template pTemplate="header">
+            <div class="flex items-center justify-center gap-2 p-2">
+                <p-avatar 
+                    image="assets/blueWallpaper.png"
+                    shape="circle" />
+                <span class="font-bold white-space-nowrap">
+                    {{visibleRegisterPopup ? 'Register' : 'Log in'}}
+                </span>
+            </div>
+        </ng-template>
+        <form [formGroup]="form" (ngSubmit)="loginRegister()" (keydown.enter)="loginRegister()" class="p-2">
+            <div class="flex items-center gap-3 mb-3">
+                <label for="email" class="font-semibold w-6rem">
+                    Email
+                </label>
+                <input pInputText id="email" class="flex-auto" autocomplete="off" formControlName="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+            </div>
+            <div class="flex flex-col justify-center items-start gap-3">
+                <section class="flex items-center gap-3 w-full">
+                    <article class="w-full">
+                        <div class="flex gap-3">
+                            <label for="password" class="font-semibold w-6rem">Password</label>
+                            <input pInputText id="password" class="flex-auto" autocomplete="on" type="password" formControlName="password" pattern="^[^|\\/]{1,30}$"/>
+                        </div>
+                    </article>
+                </section>
+                
+                @if (errorMessages) {
+                    <p-messages class="w-full" [escape]="false" [(value)]="errorMessages" [enableService]="false"></p-messages>
+                }
+            </div>
+        </form>
+        <ng-template pTemplate="footer">
+            <div class="flex justify-end gap-2 p-2">
+                <p-button 
+                    label="Cancel" 
+                    [text]="true" 
+                    styleClass="cancel"
+                    (onClick)="visiblePopup.set(false)" 
+                />
+                <p-button 
+                    [label]="visibleRegisterPopup ? 'Register' : 'Log in'" 
+                    [outlined]="true" 
+                    styleClass="bg-blue-500 hover:bg-blue-400"
+                    (onClick)="loginRegister()" 
+                />
+            </div>
+            <p-progressBar mode="indeterminate" [style]="{ height: '6px' }" [ngClass]="{'opacity-0': !loadingLoginRegister}" />
+        </ng-template>
+</p-dialog>

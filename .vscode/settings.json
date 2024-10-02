@@ -1,0 +1,7 @@
+{
+    "workbench.editor.customLabels.enabled": true,
+    "workbench.editor.customLabels.patterns": {
+        "*/src/app/views/google-facebook-oauth/google-facebook-oauth.component.html": "google-facebook-oauth.component.html",
+        "*/src/app/shared/components/header/header.component.html": "header.component.html"
+    }
+}

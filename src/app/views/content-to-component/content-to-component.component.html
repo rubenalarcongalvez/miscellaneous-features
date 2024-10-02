@@ -33,7 +33,7 @@
     <p>We can handle it with <code>ContentChild</code> and <code>ngTemplate</code></p>
     <hr>
     <div class="flex justify-center">
-      <button (click)="exampleComponent.toggleExpanded();">{{exampleComponent.expanded ? 'Hide' : 'Show'}} content</button>
+      <button class="bg-blue-500 hover:bg-blue-400" (click)="exampleComponent.toggleExpanded();">{{exampleComponent.expanded ? 'Hide' : 'Show'}} content</button>
     </div>
     <!-- We have to put template to load content normally, if not, content with *ngTemplateOutlet="detailsTemplate!" will not load -->
     <ng-template #handleLoadTemplateExample>

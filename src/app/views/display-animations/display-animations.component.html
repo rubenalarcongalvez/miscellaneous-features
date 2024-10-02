@@ -1,7 +1,7 @@
 <main class="mt-5 flex flex-col gap-3 justify-center items-center">
     <h2>This allow us to make animations or transitions when the element is going to be displayed or is going to be hided.</h2>
     <section class="flex gap-2">
-        <button (click)="contentShowed = true" [ngClass]="{'hidden': contentShowed}">Show content</button>
+        <button class="bg-blue-500 hover:bg-blue-400" (click)="contentShowed = true" [ngClass]="{'hidden': contentShowed}">Show content</button>
     </section>
 </main>
 
@@ -11,5 +11,5 @@
     <h3>This is the content we want to display with transition.</h3>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor unde magni architecto molestias expedita voluptatibus debitis voluptas officiis. Incidunt repudiandae dicta nesciunt perferendis suscipit natus ex dolorum odit eos iusto.</p>
     <br>
-    <button class="w-full text-center" (click)="contentShowed = false">Hide content</button>
+    <button class="w-full text-center bg-blue-500 hover:bg-blue-400" (click)="contentShowed = false">Hide content</button>
 </section>

@@ -2,6 +2,7 @@
     <mat-sidenav-container autosize class="container m-auto">
         <mat-toolbar class="!bg-blue-800 text-resize">
             <button mat-icon-button (click)="sidenav.toggle();"><mat-icon>menu</mat-icon></button>
+            <a id="githubRepo" href="https://github.com/rubenalarcongalvez/miscellaneous-features/tree/master/src/app/views/{{router.url}}" mat-icon-button matTooltip="See the code of this section"><i class="pi pi-github"></i></a>
             <span routerLink="/" class="cursor-pointer full-title">Miscellaneous Features</span>
             <span routerLink="/" class="cursor-pointer collapsed-title">Misc.</span>
             @if(activeTab) {
@@ -10,6 +11,9 @@
             <span class="text-cyan-400 break-words text-wrap capitalize">{{activeTab}}</span>
             <span class="flex-1"></span>
             <mat-slide-toggle hideIcon matTooltip="Dark mode" [checked]="checkedDarkMode" (change)="toggleDarkScheme()"></mat-slide-toggle>
+            <button *ngIf="loggedIn" mat-icon-button matTooltip="Log out" (click)="logout()">
+                <mat-icon>logout</mat-icon>
+            </button>
             <button mat-icon-button matTooltip="Fullscreen menu" (click)="sidenavFullscreen = true; sidenav.toggle()">
                 <mat-icon>fullscreen</mat-icon>
             </button>
@@ -24,6 +28,10 @@
         }
         <ul (click)="sidenav.close(); sidenavFullscreen = false">
             <li routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="pi pi-home basis-full"></li>
+            <li routerLink="/google-facebook-oauth" routerLinkActive="active">Google, Facebook OAuth</li>
+            @if (loggedIn) {
+                <li routerLink="/firebase-database" routerLinkActive="active">Firebase Database</li>
+            }
             <!-- <li routerLink="/payment-gateway" routerLinkActive="active">Payment Gateway</li> -->
             <!-- <li routerLink="/ads" routerLinkActive="active">Ads</li> -->
             <li routerLink="/normalize-strings" routerLinkActive="active">Normalize Strings</li>

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MaterialModule } from '../../../shared/style/material.module';
 import { CommonModule } from '@angular/common';
+import { StorageService } from '../../services/storage.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +16,18 @@ export class HeaderComponent {
   sidenavFullscreen: boolean = false;
   checkedDarkMode: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(public router: Router, private storageService: StorageService, private authService: AuthService) {}
 
   get activeTab(): string {
     return this.router.url.replaceAll('-', ' ').replace('/', '');
+  }
+
+  public get loggedIn() : boolean {
+    return this.storageService.isLoggedIn();
+  }  
+
+  logout() {
+    this.authService.logout();
   }
 
   toggleDarkScheme() {

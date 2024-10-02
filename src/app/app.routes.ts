@@ -22,6 +22,9 @@ import { LazyLoadingComponent } from './views/lazy-loading/lazy-loading.componen
 import { ContentToComponentComponent } from './views/content-to-component/content-to-component.component';
 import { AdsComponent } from './views/ads/ads.component';
 import { DisplayAnimationsComponent } from './views/display-animations/display-animations.component';
+import { GoogleFacebookOauthComponent } from './views/google-facebook-oauth/google-facebook-oauth.component';
+import { FirebaseDatabaseComponent } from './views/firebase-database/firebase-database.component';
+import { canActivate, redirectUnauthorizedTo } from "@angular/fire/auth-guard";
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -47,6 +50,8 @@ export const routes: Routes = [
     {path: 'lazy-loading', component: LazyLoadingComponent},
     {path: 'content-to-component', component: ContentToComponentComponent},
     {path: 'display-animations', component: DisplayAnimationsComponent},
+    {path: 'google-facebook-oauth', component: GoogleFacebookOauthComponent},
+    {path: 'firebase-database', component: FirebaseDatabaseComponent, ...canActivate(() => redirectUnauthorizedTo('/google-facebook-oauth'))}, //We use Firebase's one in this example, but if we have a more secure backend, or more specific, we should use it
 
     {path: '**', redirectTo: ''}
 ];
