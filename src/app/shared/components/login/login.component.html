@@ -28,7 +28,7 @@
     [style]="{ width: '25rem', minWidth: '25rem', minHeight: '215px' }"
     [dismissableMask]="true"
     [resizable]="true"
-    (onHide)="reset()"
+    (onHide)="this.form.reset()"
 >
         <ng-template pTemplate="header">
             <div class="flex items-center justify-center gap-2 p-2">
@@ -41,24 +41,26 @@
             </div>
         </ng-template>
         <form [formGroup]="form" (ngSubmit)="loginRegister()" (keydown.enter)="loginRegister()" class="p-2">
-            <div class="flex items-center gap-3 mb-3">
-                <label for="email" class="font-semibold w-6rem">
-                    Email
-                </label>
-                <input pInputText id="email" class="flex-auto" autocomplete="off" formControlName="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
-            </div>
             <div class="flex flex-col justify-center items-start gap-3">
-                <section class="flex items-center gap-3 w-full">
-                    <article class="w-full">
-                        <div class="flex gap-3">
-                            <label for="password" class="font-semibold w-6rem">Password</label>
-                            <input pInputText id="password" class="flex-auto" autocomplete="on" type="password" formControlName="password" pattern="^[^|\\/]{1,30}$"/>
-                        </div>
-                    </article>
+                <section class="flex flex-col items-center gap-3 w-full">
+                    <input placeholder="Email" pInputText id="email" class="flex-auto w-full text-lg" autocomplete="off" formControlName="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+                    <input placeholder="Password" pInputText id="password" class="flex-auto w-full text-lg" autocomplete="on" type="password" formControlName="password" pattern="^[^|\\/]{1,30}$"/>
+                    @if (visibleRegisterPopup) {
+                        <input placeholder="Password Confirmation" pInputText id="passwordConfirmation" class="flex-auto w-full text-lg" autocomplete="on" type="password" formControlName="passwordConfirmation" pattern="^[^|\\/]{1,30}$"/>
+                    }
                 </section>
                 
-                @if (errorMessages) {
-                    <p-messages class="w-full" [escape]="false" [(value)]="errorMessages" [enableService]="false"></p-messages>
+                @if (messages) {
+                    <p-messages class="w-full" [escape]="false" [(value)]="messages" [enableService]="false"></p-messages>
+                    @if(errors) {
+                        <p class="text-center text-wrap">If you don't remember your password or you did not register this email before and you cannot <a (click)="changeToRegister()" class="cursor-pointer text-blue-500 hover:text-blue-400">register</a>, you can <a (click)="resetPassword()" class="cursor-pointer text-blue-500 hover:text-blue-400">Reset password</a></p>
+                    }
+                }
+
+                @if (verifyEmail) {
+                    <section class="flex w-full justify-center">
+                        <p-button (click)="sendEmailVerification()" severity="warning" label="Send Email Verification"/>
+                    </section>
                 }
             </div>
         </form>

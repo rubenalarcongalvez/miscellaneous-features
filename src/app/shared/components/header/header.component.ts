@@ -23,7 +23,8 @@ export class HeaderComponent {
   }
 
   public get loggedIn() : boolean {
-    return this.storageService.isLoggedIn();
+    // return this.authService.getCurrentUser() != null; //It is a bit slow to detect it on first instance
+    return this.storageService.isLoggedIn(); //In case we use localStorage
   }  
 
   logout() {

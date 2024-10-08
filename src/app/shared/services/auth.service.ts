@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
-import { Auth, createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, UserCredential } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, deleteUser, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateEmail, updatePassword, User, UserCredential, verifyBeforeUpdateEmail } from '@angular/fire/auth';
 
 //So we can have it classified
 export enum SocialLoginMethods {
@@ -20,16 +20,51 @@ export class AuthService {
   };
 
   constructor(
-    private auth: Auth
+    private readonly auth: Auth
   ) {}
 
-  register(email: string, password: string) {
+  /*=============================================
+  =            Traditional email            =
+  =============================================*/
+  
+  register(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  loginRegister(email: string, password: string, register: boolean = false): Promise<UserCredential> {
-    return !register ? signInWithEmailAndPassword(this.auth, email, password) : this.register(email, password); //Just import it
+  sendVerificationEmail(user: User): Promise<void> {
+    return sendEmailVerification(user);
   }
+
+  login(email: string, password: string): Promise<UserCredential> {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  loginRegister(email: string, password: string, register?: boolean): Promise<UserCredential> {
+    return !register ? signInWithEmailAndPassword(this.auth, email, password) : this.register(email, password);
+  }
+
+  getCurrentUser(): User | null {
+    return this.auth.currentUser;
+  }
+
+  sendPasswordResetEmail(email: string): Promise<void> {
+    return sendPasswordResetEmail(this.auth, email);
+  }
+
+  updatePassword(user: User, newPassword: string): Promise<void> {
+    return updatePassword(user, newPassword);
+  }
+
+  updateEmail(user: User, newEmail: string): Promise<void> {
+    /* We have to verify first the email before update, the method updateEmail is not the recommended */
+    return verifyBeforeUpdateEmail(user, newEmail);
+  }
+
+  deleteUser(user: User): Promise<void> {
+    return deleteUser(user);
+  }
+  
+  /*=====  Final de Traditional email  ======*/
 
   socialLogin(socialLoginMethod: SocialLoginMethods): Promise<UserCredential> {
     let authMethod;
@@ -47,7 +82,7 @@ export class AuthService {
         break;
       }
     }
-    return signInWithPopup(this.auth, authMethod!); //Just import it
+    return signInWithPopup(this.auth, authMethod); //Just import it
   }
 
   logout(): void {

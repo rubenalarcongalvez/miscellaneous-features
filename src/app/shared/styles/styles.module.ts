@@ -6,6 +6,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { FloatLabelModule } from 'primeng/floatlabel';
 import { MaterialModule } from '../style/material.module';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MaterialModule } from '../style/material.module';
     MessagesModule,
     ToastModule,
     ProgressBarModule,
+    FloatLabelModule,
   ]
 })
 export class StylesModule { }

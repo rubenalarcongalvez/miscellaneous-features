@@ -7,7 +7,12 @@
 
     <section class="flex flex-col gap-2 items-center justify-center">
         @if (loggedIn) {
-            <p-button (onClick)="logout()" class="w-full" label="Log out" styleClass="bg-red-600 hover:bg-red-500 border-none outline-none w-full"/>
+            <section class="flex gap-2 items-center justify-center flex-wrap w-full">
+                <p-button (onClick)="visibleUpdateEmailPopup = true" icon="pi pi-user-edit" label="Update email" styleClass="d-flex gap-2"></p-button>
+                <p-button (onClick)="visibleUpdatePasswordPopup = true" icon="pi pi-pencil" label="Update password" styleClass="d-flex gap-2"></p-button>
+                <p-button (onClick)="visibleDeleteUserPopup = true" icon="pi pi-trash" label="Delete user" styleClass="bg-black hover:bg-red-500 border-none outline-none d-flex gap-2"></p-button>
+                <p-button (onClick)="logout()" label="Log out" styleClass="bg-red-600 hover:bg-red-500 border-none outline-none"/>
+            </section>
         } @else {
             <app-login class="w-full flex justify-center"></app-login>
         }
@@ -95,3 +100,112 @@
         <p>If your project doesn’t have highly specific authentication requirements or advanced customizations, <strong>Firebase is generally the best option</strong> for most cases.</p>
     </section>
 </main>
+
+<!-- Update email -->
+<p-dialog 
+    header="Header" 
+    [(visible)]="visibleUpdateEmailPopup" 
+    [modal]="true" 
+    [dismissableMask]="true"
+    [style]="{ width: '25rem', minWidth: '25rem', minHeight: '215px' }"
+    styleClass="p-3 bg-white"
+>
+    <ng-template pTemplate="header">
+        <h2 class="text-blue-600">Update email</h2>
+    </ng-template>
+    
+    <form [formGroup]="updateEmailForm" (ngSubmit)="updateUserEmail()" (keydown.enter)="updateUserEmail()" class="flex flex-col items-center gap-3 w-full py-2">
+        <input placeholder="Previous Email" pInputText id="previousEmail" class="flex-auto w-full text-lg" autocomplete="off" formControlName="previousEmail"/>
+        <input placeholder="New Email" pInputText id="email" class="flex-auto w-full text-lg" autocomplete="off" formControlName="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+        <input placeholder="Confirm New Email" pInputText id="emailConfirmation" class="flex-auto w-full text-lg" autocomplete="off" formControlName="emailConfirmation"/>
+
+        <p-messages class="w-full" [escape]="false" [(value)]="messages" [enableService]="false"></p-messages>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-end gap-2 p-2">
+            <p-button 
+                label="Cancel" 
+                [text]="true" 
+                styleClass="cancel"
+                (onClick)="visibleUpdateEmailPopup = false" 
+            />
+            <p-button 
+                label="Update" 
+                [outlined]="true" 
+                styleClass="bg-blue-500 hover:bg-blue-400"
+                (onClick)="updateUserEmail()" 
+            />
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- Update password -->
+<p-dialog 
+header="Header" 
+[(visible)]="visibleUpdatePasswordPopup" 
+[modal]="true" 
+[dismissableMask]="true"
+[style]="{ width: '25rem', minWidth: '25rem', minHeight: '215px' }"
+styleClass="p-3 bg-white"
+>
+    <ng-template pTemplate="header">
+        <h2 class="text-blue-600">Update password</h2>
+    </ng-template>
+
+    <form [formGroup]="updatePasswordForm" (ngSubmit)="updateUserPassword()" (keydown.enter)="updateUserPassword()" class="flex flex-col items-center gap-3 w-full py-2">
+        <input placeholder="New Password" pInputText id="password" class="flex-auto w-full text-lg" autocomplete="off" formControlName="password" type="password"/>
+        <input placeholder="Confirm New Password" pInputText id="passwordConfirmation" class="flex-auto w-full text-lg" autocomplete="off" formControlName="passwordConfirmation" type="password"/>
+
+        <p-messages class="w-full" [escape]="false" [(value)]="messages" [enableService]="false"></p-messages>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-end gap-2 p-2">
+            <p-button 
+                label="Cancel" 
+                [text]="true" 
+                styleClass="cancel"
+                (onClick)="visibleUpdatePasswordPopup = false" 
+            />
+            <p-button 
+                label="Update" 
+                [outlined]="true" 
+                styleClass="bg-blue-500 hover:bg-blue-400"
+                (onClick)="updateUserPassword()" 
+            />
+        </div>
+    </ng-template>
+</p-dialog>
+
+<!-- Delete user -->
+<p-dialog 
+    header="Header" 
+    [(visible)]="visibleDeleteUserPopup" 
+    [modal]="true" 
+    [dismissableMask]="true"
+    styleClass="p-3 bg-white"
+>
+    <ng-template pTemplate="header">
+        <h2 class="text-red-600">ATTENTION</h2>
+    </ng-template>
+    
+    <p class="text-center py-2">¿Are you sure you want to delete your user?</p>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-end gap-2 p-2">
+            <p-button 
+                label="Cancel" 
+                [text]="true" 
+                styleClass="cancel"
+                (onClick)="visibleDeleteUserPopup = false" 
+            />
+            <p-button 
+                label="Delete" 
+                [outlined]="true" 
+                styleClass="bg-red-500 hover:bg-red-400"
+                (onClick)="deleteUser()" 
+            />
+        </div>
+    </ng-template>
+</p-dialog>
