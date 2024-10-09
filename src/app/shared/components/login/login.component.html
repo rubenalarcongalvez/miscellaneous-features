@@ -10,9 +10,9 @@
     </section>
     <h3 class="text-black w-full text-center m-1">You can also log in with</h3>
     <section class="card flex justify-center gap-2 flex-wrap w-full max-w-screen-sm">
-        <p-button icon="pi pi-google" styleClass="bg-white text-black hover:bg-gray-100" class="outline outline-1 outline-solid outline-gray-200 rounded" matTooltip="Google">
+        <p-button (click)="socialLogin(socialLoginMethods.Google)" icon="pi pi-google" styleClass="bg-white text-black hover:bg-gray-100" class="outline outline-1 outline-solid outline-gray-200 rounded" matTooltip="Google">
             <ng-template pTemplate="icon">
-                <img (click)="socialLogin(socialLoginMethods.Google)" src="assets/google-icon.png" width="20" height="20" alt="Google">
+                <img src="assets/google-icon.png" width="20" height="20" alt="Google">
             </ng-template>
         </p-button>
         <p-button (click)="socialLogin(socialLoginMethods.Facebook)" icon="pi pi-facebook" matTooltip="Facebook"/>
