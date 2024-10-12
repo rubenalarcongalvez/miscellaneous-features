@@ -43,6 +43,10 @@ export class GoogleFacebookOauthComponent {
     return this.authService.getCurrentUser();
   }
 
+  isEmailAuth(): boolean {
+    return this.getUser?.providerData?.findIndex(p => p.providerId == 'password') != -1;
+  }
+
   updateUserEmail() {
     if (this.updateEmailForm.get('previousEmail')?.value == this.getUser?.email && this.updateEmailForm.valid && this.updateEmailForm.get('email')?.value == this.updateEmailForm.get('emailConfirmation')?.value) {
       this.authService.updateEmail(this.getUser!, this.updateEmailForm.get('email')?.value).then(() => {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
-import { Auth, createUserWithEmailAndPassword, deleteUser, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateEmail, updatePassword, User, UserCredential, verifyBeforeUpdateEmail } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, deleteUser, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updatePassword, User, UserCredential, verifyBeforeUpdateEmail } from '@angular/fire/auth';
 
 //So we can have it classified
 export enum SocialLoginMethods {
@@ -13,19 +12,13 @@ export enum SocialLoginMethods {
   providedIn: 'root'
 })
 export class AuthService {
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-  };
-
   constructor(
     private readonly auth: Auth
   ) {}
 
-  /*=============================================
-  =            Traditional email            =
-  =============================================*/
+  getCurrentUser(): User | null {
+    return this.auth.currentUser;
+  }
   
   register(email: string, password: string): Promise<UserCredential> {
     return createUserWithEmailAndPassword(this.auth, email, password);
@@ -43,31 +36,9 @@ export class AuthService {
     return !register ? signInWithEmailAndPassword(this.auth, email, password) : this.register(email, password);
   }
 
-  getCurrentUser(): User | null {
-    return this.auth.currentUser;
-  }
-
-  sendPasswordResetEmail(email: string): Promise<void> {
-    return sendPasswordResetEmail(this.auth, email);
-  }
-
-  updatePassword(user: User, newPassword: string): Promise<void> {
-    return updatePassword(user, newPassword);
-  }
-
-  updateEmail(user: User, newEmail: string): Promise<void> {
-    /* We have to verify first the email before update, the method updateEmail is not the recommended */
-    return verifyBeforeUpdateEmail(user, newEmail);
-  }
-
-  deleteUser(user: User): Promise<void> {
-    return deleteUser(user);
-  }
-  
-  /*=====  Final de Traditional email  ======*/
-
   socialLogin(socialLoginMethod: SocialLoginMethods): Promise<UserCredential> {
     let authMethod;
+    /* We put the methods we like */
     switch(socialLoginMethod) {
       case SocialLoginMethods.Google: {
         authMethod = new GoogleAuthProvider();
@@ -89,5 +60,22 @@ export class AuthService {
     signOut(this.auth); // Method to log out with Firebase
     window.sessionStorage.removeItem('auth-user'); // Method to log out in our personal backend if we have (not necessary, but an option for more complex apps)
     window.location.reload();
+  }
+
+  sendPasswordResetEmail(email: string): Promise<void> {
+    return sendPasswordResetEmail(this.auth, email);
+  }
+
+  updatePassword(user: User, newPassword: string): Promise<void> {
+    return updatePassword(user, newPassword);
+  }
+
+  updateEmail(user: User, newEmail: string): Promise<void> {
+    /* We have to verify first the email before update, the method updateEmail is not the recommended */
+    return verifyBeforeUpdateEmail(user, newEmail);
+  }
+
+  deleteUser(user: User): Promise<void> {
+    return deleteUser(user);
   }
 }

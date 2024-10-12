@@ -121,6 +121,7 @@ export class LoginComponent {
     if ((this.form.valid && !this.visibleRegisterPopup) || (this.form.valid && this.visibleRegisterPopup && this.form.get('password')?.value == this.form.get('passwordConfirmation')?.value)) {
       this.loadingLoginRegister = true;
       this.authService.loginRegister(this.form.get('email')?.value, this.form.get('password')?.value, this.visibleRegisterPopup).then((userCredential) => {
+        /* We get the token to save it for our own backend if we need it */
         userCredential.user.getIdToken(true).then((token) => {
           if (this.visibleRegisterPopup) {
             this.authService.sendVerificationEmail(userCredential.user);

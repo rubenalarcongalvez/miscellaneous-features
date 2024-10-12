@@ -8,8 +8,10 @@
     <section class="flex flex-col gap-2 items-center justify-center">
         @if (loggedIn) {
             <section class="flex gap-2 items-center justify-center flex-wrap w-full">
-                <p-button (onClick)="visibleUpdateEmailPopup = true" icon="pi pi-user-edit" label="Update email" styleClass="d-flex gap-2"></p-button>
-                <p-button (onClick)="visibleUpdatePasswordPopup = true" icon="pi pi-pencil" label="Update password" styleClass="d-flex gap-2"></p-button>
+                @if(isEmailAuth()) {
+                    <p-button (onClick)="visibleUpdateEmailPopup = true" icon="pi pi-user-edit" label="Update email" styleClass="d-flex gap-2"></p-button>
+                    <p-button (onClick)="visibleUpdatePasswordPopup = true" icon="pi pi-pencil" label="Update password" styleClass="d-flex gap-2"></p-button>
+                }
                 <p-button (onClick)="visibleDeleteUserPopup = true" icon="pi pi-trash" label="Delete user" styleClass="bg-black hover:bg-red-500 border-none outline-none d-flex gap-2"></p-button>
                 <p-button (onClick)="logout()" label="Log out" styleClass="bg-red-600 hover:bg-red-500 border-none outline-none"/>
             </section>
