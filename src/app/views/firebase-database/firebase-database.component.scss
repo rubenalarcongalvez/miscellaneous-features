@@ -1,0 +1,22 @@
+#user-image:hover {
+    h3 {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+textarea {
+    font-size: 16px;
+    cursor: text;
+    width: 500px;
+    field-sizing: content;
+    max-height: 100px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-wrap: wrap;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.75);
+}

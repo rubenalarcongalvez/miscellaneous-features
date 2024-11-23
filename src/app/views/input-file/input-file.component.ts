@@ -47,7 +47,10 @@ export class InputFileComponent {
   }
   
   clear() {
-    /* Do a more elaborated feature for this if you like, but not the main thread */
-    location.reload();
+    this.fileType = '';
+    this.fileSrc = 'assets/blueWallpaper.png';
+    this.fileTitle = 'Upload your file to preview';
+    this.previewHover = false;
+    this.file = null;
   }
 }

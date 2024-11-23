@@ -1,0 +1,10 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Ruta especifica para los archivos de usuarios
+    match /miscellaneous-features/firebase-database-section/users/{userId} {
+      // Permitir acceso solo si el UID del usuario autenticado coincide con el nombre del archivo (userId)
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

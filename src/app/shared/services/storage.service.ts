@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LoggedUser } from '../interfaces/loggedUser';
+import { docData, Firestore } from '@angular/fire/firestore';
+import { ref, Storage, uploadBytes } from '@angular/fire/storage';
+import { doc, setDoc } from 'firebase/firestore';
+import { getDownloadURL } from 'firebase/storage';
 
 const USER_KEY = 'auth-user';
 
@@ -7,7 +11,8 @@ const USER_KEY = 'auth-user';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {}
+  
+  constructor(private firestore: Firestore, private storage: Storage) {}
 
   clean(): void {
     window.sessionStorage.clear();
@@ -35,4 +40,42 @@ export class StorageService {
 
     return false;
   }
+
+  /*=============================================
+  =            Database management            =
+  =============================================*/
+  
+  getDocumentByAddress(
+    address: string
+  ) {
+    const subdocRef = doc(this.firestore, address);
+    return docData(subdocRef);
+  }
+
+  
+  /**
+   * @description Create or update a document in the database
+   */
+  setDocumentByAddress(address: string, data: any): Promise<void> {
+    const docRef = doc(this.firestore, address);
+    return setDoc(docRef, data);
+  }
+  
+  /*=====  Final de Database management  ======*/
+
+  /*=============================================
+  =            Storage management            =
+  =============================================*/
+  
+  uploadFile(address: string, file: File) {
+    const storageRef = ref(this.storage, address);
+    return uploadBytes(storageRef, file);
+  }
+
+  getFileUrl(address: string) {
+    const storageRef = ref(this.storage, address);
+    return getDownloadURL(storageRef);
+  }
+  
+  /*=====  Final de Storage management  ======*/
 }

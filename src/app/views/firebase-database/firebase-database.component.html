@@ -8,7 +8,32 @@
         <h3 class="text-center w-full text-orange-500">First, you have to create your database <a href="https://firebase.google.com/?hl=es-419">HERE</a></h3>
         <p class="text-center">You can see the code freely and dig into its features. But most important, the methods you need for the database. </p>
     </section>
-    <section class="w-full">
-        <h1 class="text-center text-blue-600">{{ workInProgress() }}</h1>
+    <section>
+        <h2 class="text-green-600 mb-2 text-center text-balance">Example of storing fields in Database (message of the day and image title) and a custom file in Storage</h2>
+        <p class="text-center mb-2">The message of the day and the file with its title will be always here when you log in</p>
+
+        <div class="flex justify-center items-center flex-col">
+            <textarea (keydown.control.enter)="saveData()" class="rounded-t" placeholder="Message of the day" [spellcheck]="false" [(ngModel)]="messageOfTheDay">{{messageOfTheDay}}</textarea>
+        </div>
+
+        <div class="flex justify-center items-center flex-col">
+            <label class="cursor-pointer">
+                <input type="file" accept=".png, .jpg" class="hidden" (change)="previewBeforeUpload($event)"/>
+                    <article class="flex items-center flex-col w-[500px] relative" (mouseenter)="hoverTitle()" (mouseleave)="blurTitle()" id="user-image">
+                        <img [src]="fileSrc" alt="image" width="500" height="auto">
+
+                        @if (previewHover) {
+                            <h3 class="text-white w-full text-center p-2 absolute bottom-0" style="background-color: rgba(0, 0, 0, 0.75);">Upload your file</h3>
+                        }
+                    </article>
+            </label>
+            
+            <textarea (keydown.control.enter)="saveData()" placeholder="Image title" [spellcheck]="false" [ngClass]="{'rounded-b': fileTitle == 'Upload your file'}" [(ngModel)]="imageTitle">{{imageTitle}}</textarea>
+
+            <article class="flex w-[500px]">
+                <button class="m-0 bg-orange-500 text-white text-center rounded-b cursor-pointer hover:font-bold text-lg grow" (click)="clearFile()">Clear File</button>
+                <button class="m-0 bg-blue-600 text-white text-center rounded-b cursor-pointer hover:font-bold text-lg grow" (click)="saveData()">Save</button>
+            </article>
+        </div>
     </section>
 </main>
