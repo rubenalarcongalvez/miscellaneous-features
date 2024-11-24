@@ -1,20 +1,20 @@
 <header class="!bg-blue-800">
     <mat-sidenav-container autosize class="container m-auto">
-        <mat-toolbar class="!bg-blue-800 text-resize">
+        <mat-toolbar class="!bg-blue-800 text-resize flex justify-between">
             <button mat-icon-button (click)="sidenav.toggle();"><mat-icon>menu</mat-icon></button>
             <a id="githubRepo" href="https://github.com/rubenalarcongalvez/miscellaneous-features/tree/master/src/app/views/{{router.url}}" mat-icon-button matTooltip="See the code of this section"><i class="pi pi-github"></i></a>
             <span routerLink="/" class="cursor-pointer full-title">Miscellaneous Features</span>
-            <span routerLink="/" class="cursor-pointer collapsed-title">Misc.</span>
+            <span routerLink="/" class="cursor-pointer collapsed-title not-necesary-mobile">Misc.</span>
             @if(activeTab) {
-                <span>&nbsp;-&nbsp;</span>
+                <span class="not-necesary-mobile">&nbsp;-&nbsp;</span>
             }
-            <span class="text-cyan-400 break-words text-wrap capitalize">{{activeTab}}</span>
-            <span class="flex-1"></span>
-            <mat-slide-toggle hideIcon matTooltip="Dark mode" [checked]="checkedDarkMode" (change)="toggleDarkScheme()"></mat-slide-toggle>
+            <span class="text-cyan-400 break-words text-wrap capitalize not-necesary-mobile">{{activeTab}}</span>
+            <span class="flex-1 not-necesary-mobile"></span>
+            <mat-slide-toggle class="not-necesary-mobile" hideIcon matTooltip="Dark mode" [checked]="checkedDarkMode" (change)="toggleDarkScheme()"></mat-slide-toggle>
             <button *ngIf="loggedIn" mat-icon-button matTooltip="Log out" (click)="logout()">
                 <mat-icon>logout</mat-icon>
             </button>
-            <button mat-icon-button matTooltip="Fullscreen menu" (click)="sidenavFullscreen = true; sidenav.toggle()">
+            <button class="not-necesary-mobile" mat-icon-button matTooltip="Fullscreen menu" (click)="sidenavFullscreen = true; sidenav.toggle()">
                 <mat-icon>fullscreen</mat-icon>
             </button>
         </mat-toolbar>

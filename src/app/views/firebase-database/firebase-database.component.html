@@ -19,8 +19,8 @@
         <div class="flex justify-center items-center flex-col">
             <label class="cursor-pointer">
                 <input type="file" accept=".png, .jpg" class="hidden" (change)="previewBeforeUpload($event)"/>
-                    <article class="flex items-center flex-col w-[500px] relative" (mouseenter)="hoverTitle()" (mouseleave)="blurTitle()" id="user-image">
-                        <img [src]="fileSrc" alt="image" width="500" height="auto">
+                    <article class="flex items-center flex-col relative w-full max-w-[500px]" (mouseenter)="hoverTitle()" (mouseleave)="blurTitle()" id="user-image">
+                        <img [src]="fileSrc" alt="image" height="auto" class="w-full max-w-[500px]">
 
                         @if (previewHover) {
                             <h3 class="text-white w-full text-center p-2 absolute bottom-0" style="background-color: rgba(0, 0, 0, 0.75);">Upload your file</h3>
@@ -30,7 +30,7 @@
             
             <textarea (keydown.control.enter)="saveData()" placeholder="Image title" [spellcheck]="false" [ngClass]="{'rounded-b': fileTitle == 'Upload your file'}" [(ngModel)]="imageTitle">{{imageTitle}}</textarea>
 
-            <article class="flex w-[500px]">
+            <article class="flex w-full max-w-[500px] flex-wrap">
                 <button class="m-0 bg-orange-500 text-white text-center rounded-b cursor-pointer hover:font-bold text-lg grow" (click)="clearFile()">Clear File</button>
                 <button class="m-0 bg-blue-600 text-white text-center rounded-b cursor-pointer hover:font-bold text-lg grow" (click)="saveData()">Save</button>
             </article>

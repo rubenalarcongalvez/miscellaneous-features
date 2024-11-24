@@ -83,3 +83,9 @@ li.last {
 #githubRepo.mat-mdc-icon-button.mat-mdc-button-base {
     padding: 7.5px !important;
 }
+
+.not-necesary-mobile {
+    @media(max-width: 500px) {
+        display: none !important;
+    }
+}

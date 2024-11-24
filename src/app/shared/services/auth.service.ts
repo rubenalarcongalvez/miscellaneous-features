@@ -58,7 +58,7 @@ export class AuthService {
 
   logout(): void {
     signOut(this.auth); // Method to log out with Firebase
-    window.sessionStorage.removeItem('auth-user'); // Method to log out in our personal backend if we have (not necessary, but an option for more complex apps)
+    window.localStorage.removeItem('auth-user'); // Method to log out in our personal backend if we have (not necessary, but an option for more complex apps)
     window.location.reload();
   }
 

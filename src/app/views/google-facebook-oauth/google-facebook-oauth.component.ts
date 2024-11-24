@@ -44,7 +44,10 @@ export class GoogleFacebookOauthComponent {
   }
 
   isEmailAuth(): boolean {
-    return this.getUser?.providerData?.findIndex(p => p.providerId == 'password') != -1;
+    if (this.getUser && this.getUser?.providerData?.findIndex(p => p.providerId === 'password') != -1) {
+      return true;
+    }
+    return false;
   }
 
   updateUserEmail() {
