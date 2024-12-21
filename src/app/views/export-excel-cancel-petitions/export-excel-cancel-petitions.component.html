@@ -28,7 +28,7 @@
     <p-button [disabled]="loadingExcel" icon="pi pi-file-excel" label="Export to Excel" severity="success" styleClass="flex gap-2" (onClick)="exportExcel()"></p-button>
     @if (loadingExcel) {
         <mat-progress-spinner mode="indeterminate" color="primary" diameter="25"></mat-progress-spinner>
-        <i class="pi pi-minus-circle text-red-600 cursor-pointer" matTooltip="Cancel" (click)="cancelPetitionExcel()"></i>
+        <i class="pi pi-minus-circle text-red-600 cursor-pointer" matTooltip="Cancel" (click)="cancelExcelRequest()"></i>
     }
 </div>
 

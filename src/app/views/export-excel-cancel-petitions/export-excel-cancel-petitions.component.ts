@@ -23,24 +23,24 @@ export class ExportExcelCancelPetitionsComponent {
     numberOfChildren: [0, [Validators.required, Validators.min(0)]],
   });
 
-  private destroyPeticionExcel$ = new Subject<void>();
+  private destroyExcelRequest$ = new Subject<void>();
   loadingExcel: boolean = false;
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private excelService: ExcelService) {}
-  
+
   addToList() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-  
-      this.snackBar.open('Please, fill up the information.', 'Got it!', {
+
+      this.snackBar.open('Please, fill in the information.', 'Got it!', {
         duration: 3000,
         horizontalPosition: 'right',
         verticalPosition: 'top'
       });
       return;
     }
-  
-    // Si el formulario es válido, crear un nuevo objeto UserToExcel
+
+    // If the form is valid, create a new UserToExcel object
     const userToAdd: UserToExcel = {
       user: this.form.value.user,
       name: this.form.value.name,
@@ -51,15 +51,15 @@ export class ExportExcelCancelPetitionsComponent {
       },
       numberOfChildren: this.form.value.numberOfChildren,
     };
-  
-    // Agregar el nuevo usuario a la lista
+
+    // Add the new user to the list
     this.dataToExport.push(userToAdd);
-  
-    // Resetear el formulario después de agregar el usuario
+
+    // Reset the form after adding the user
     this.form.reset({
       numberOfChildren: 0
     });
-  
+
     this.snackBar.open('User added', 'Got it!', {
       duration: 3000,
       horizontalPosition: 'right',
@@ -73,16 +73,16 @@ export class ExportExcelCancelPetitionsComponent {
 
   exportExcel() {
     this.loadingExcel = true;
-    // Esto es solo un ejemplo, en la práctica, es con peticiones de verdad, pero viene a ser lo mismo
+    // This is just an example, in practice it would be with real requests, but it works the same way
     of(this.dataToExport).pipe(
       catchError((error) => {
-        this.snackBar.open('No se ha podido exportar correctamente', 'Aceptar');
-        return of([]); // Retorna un array vacío en caso de error
+        this.snackBar.open('Could not export correctly', 'OK');
+        return of([]); // Returns an empty array in case of error
       }),
-      delay(3000), // Solo para mostrarlo de ejemplo, no es necesario
-      takeUntil(this.destroyPeticionExcel$), // Mientras no se cancele la petición
+      delay(3000), // Just for example, not necessary
+      takeUntil(this.destroyExcelRequest$), // While the request is not canceled
       finalize(() => {
-        this.loadingExcel = false; // Esto se ejecutará al final, después del delay
+        this.loadingExcel = false; // This will run at the end, after the delay
       })
     ).subscribe({
       next: (response: UserToExcel[]) => {
@@ -91,16 +91,15 @@ export class ExportExcelCancelPetitionsComponent {
     });
   }
 
-  cancelPetitionExcel() {
-    this.destroyPeticionExcel$.next();
-    this.destroyPeticionExcel$.complete();
-    this.destroyPeticionExcel$ = new Subject<void>(); //Volvemos a activar para que se pueda destruir
+  cancelExcelRequest() {
+    this.destroyExcelRequest$.next();
+    this.destroyExcelRequest$.complete();
+    this.destroyExcelRequest$ = new Subject<void>(); // Reactivate it so it can be destroyed again
     this.loadingExcel = false;
   }
 
-  ngOndestroy() {
-    this.destroyPeticionExcel$.next();
-    this.destroyPeticionExcel$.complete();
+  ngOnDestroy() {
+    this.destroyExcelRequest$.next();
+    this.destroyExcelRequest$.complete();
   }
-  
 }
