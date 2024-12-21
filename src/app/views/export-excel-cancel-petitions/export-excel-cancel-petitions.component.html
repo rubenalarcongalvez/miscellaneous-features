@@ -1,0 +1,14 @@
+<form [formGroup]="form" class="flex justify-start items-center gap-3">
+    <input type="text" pInputText formControlName="user" placeholder="User">
+    <!-- <p-floatlabel>
+        <input pInputText id="on_label" autocomplete="off" />
+        <label for="on_label">On Label</label>
+    </p-floatlabel> -->
+    <p-inputNumber inputId="integeronly"
+    formControlName="numberOfChildren"
+    min="0" max="99" 
+    buttonLayout="vertical" 
+    incrementButtonIcon="pi pi-plus" 
+    decrementButtonIcon="pi pi-minus"
+    [showButtons]="true" />
+</form>

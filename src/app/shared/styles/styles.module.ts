@@ -8,6 +8,8 @@ import { ToastModule } from 'primeng/toast';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { MaterialModule } from '../style/material.module';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [],
@@ -21,6 +23,8 @@ import { MaterialModule } from '../style/material.module';
     ToastModule,
     ProgressBarModule,
     FloatLabelModule,
+    InputTextModule,
+    InputNumberModule,
   ]
 })
 export class StylesModule { }
