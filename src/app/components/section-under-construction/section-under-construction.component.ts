@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-section-under-construction',
-  standalone: true,
-  imports: [],
-  templateUrl: './section-under-construction.component.html',
-  styleUrl: './section-under-construction.component.scss'
+    selector: 'app-section-under-construction',
+    imports: [],
+    templateUrl: './section-under-construction.component.html',
+    styleUrl: './section-under-construction.component.scss'
 })
 export class SectionUnderConstructionComponent {
   workInProgress = signal<string>('');

@@ -6,11 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-firebase-database',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './firebase-database.component.html',
-  styleUrl: './firebase-database.component.scss'
+    selector: 'app-firebase-database',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './firebase-database.component.html',
+    styleUrl: './firebase-database.component.scss'
 })
 export class FirebaseDatabaseComponent {
   messageOfTheDay: string = '';

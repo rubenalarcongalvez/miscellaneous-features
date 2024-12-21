@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-blur-message',
-  standalone: true,
-  imports: [],
-  templateUrl: './blur-message.component.html',
-  styleUrl: './blur-message.component.scss'
+    selector: 'app-blur-message',
+    imports: [],
+    templateUrl: './blur-message.component.html',
+    styleUrl: './blur-message.component.scss'
 })
 export class BlurMessageComponent {
   title: string = document.title; //We save the original title

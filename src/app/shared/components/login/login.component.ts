@@ -9,11 +9,10 @@ import { AuthService, SocialLoginMethods } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [StylesModule, RouterLink, ReactiveFormsModule, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'app-login',
+    imports: [StylesModule, RouterLink, ReactiveFormsModule, CommonModule],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   visiblePopup = signal<boolean>(false);

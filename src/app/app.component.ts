@@ -6,11 +6,10 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { MaterialModule } from './shared/style/material.module';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FooterComponent, HeaderComponent, MaterialModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FooterComponent, HeaderComponent, MaterialModule],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   

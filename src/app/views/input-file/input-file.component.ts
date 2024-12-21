@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-input-file',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './input-file.component.html',
-  styleUrl: './input-file.component.scss'
+    selector: 'app-input-file',
+    imports: [CommonModule],
+    templateUrl: './input-file.component.html',
+    styleUrl: './input-file.component.scss'
 })
 export class InputFileComponent {
   fileType: string = '';
