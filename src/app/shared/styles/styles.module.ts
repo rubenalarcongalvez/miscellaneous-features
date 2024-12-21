@@ -10,6 +10,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { MaterialModule } from '../style/material.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     FloatLabelModule,
     InputTextModule,
     InputNumberModule,
+    TableModule,
   ]
 })
 export class StylesModule { }
