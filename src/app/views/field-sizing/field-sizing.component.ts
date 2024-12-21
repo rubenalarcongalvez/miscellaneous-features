@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-field-sizing',
-    imports: [CommonModule],
-    templateUrl: './field-sizing.component.html',
-    styleUrl: './field-sizing.component.scss'
+  selector: 'app-field-sizing',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './field-sizing.component.html',
+  styleUrl: './field-sizing.component.scss'
 })
 export class FieldSizingComponent {
   years: number[] = [];

@@ -5,10 +5,11 @@ import { UserToExcel } from '../../shared/services/excel.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-    selector: 'app-export-excel-cancel-petitions',
-    imports: [ReactiveFormsModule, StylesModule],
-    templateUrl: './export-excel-cancel-petitions.component.html',
-    styleUrl: './export-excel-cancel-petitions.component.scss'
+  selector: 'app-export-excel-cancel-petitions',
+  standalone: true,
+  imports: [ReactiveFormsModule, StylesModule],
+  templateUrl: './export-excel-cancel-petitions.component.html',
+  styleUrl: './export-excel-cancel-petitions.component.scss'
 })
 export class ExportExcelCancelPetitionsComponent {
   dataToExport: UserToExcel[] = [];

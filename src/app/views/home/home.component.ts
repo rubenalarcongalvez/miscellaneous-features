@@ -5,10 +5,11 @@ import { AuthService } from '../../shared/services/auth.service';
 import { StorageService } from '../../shared/services/storage.service';
 
 @Component({
-    selector: 'app-home',
-    imports: [StylesModule, RouterLink],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss'
+  selector: 'app-home',
+  standalone: true,
+  imports: [StylesModule, RouterLink],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   constructor(private readonly authService: AuthService, private readonly storageService: StorageService) {}

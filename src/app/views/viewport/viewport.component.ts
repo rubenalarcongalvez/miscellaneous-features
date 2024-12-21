@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DynamicInputDirective } from '../../shared/directives/dynamic-input-width.directive';
 
 @Component({
-    selector: 'app-viewport',
-    imports: [ReactiveFormsModule, DynamicInputDirective],
-    templateUrl: './viewport.component.html',
-    styleUrl: './viewport.component.scss'
+  selector: 'app-viewport',
+  standalone: true,
+  imports: [ReactiveFormsModule, DynamicInputDirective],
+  templateUrl: './viewport.component.html',
+  styleUrl: './viewport.component.scss'
 })
 export class ViewportComponent {
   

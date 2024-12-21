@@ -1,10 +1,9 @@
 import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 
 @Component({
-    selector: 'app-example-component',
-    templateUrl: './example-component.component.html',
-    styleUrl: './example-component.component.scss',
-    standalone: false
+  selector: 'app-example-component',
+  templateUrl: './example-component.component.html',
+  styleUrl: './example-component.component.scss'
 })
 export class ExampleComponentComponent {
   @Input() header: string = 'Default Header'; //We can use inputs as well if we like

@@ -6,10 +6,11 @@ import { StorageService } from '../../services/storage.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-    selector: 'app-header',
-    imports: [RouterLink, RouterLinkActive, MaterialModule, CommonModule],
-    templateUrl: './header.component.html',
-    styleUrl: './header.component.scss'
+  selector: 'app-header',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, MaterialModule, CommonModule],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   sidenavFullscreen: boolean = false;

@@ -10,10 +10,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Message } from 'primeng/api';
 
 @Component({
-    selector: 'app-google-facebook-oauth',
-    imports: [LoginComponent, StylesModule, ReactiveFormsModule, CommonModule],
-    templateUrl: './google-facebook-oauth.component.html',
-    styleUrl: './google-facebook-oauth.component.scss'
+  selector: 'app-google-facebook-oauth',
+  standalone: true,
+  imports: [LoginComponent, StylesModule, ReactiveFormsModule, CommonModule],
+  templateUrl: './google-facebook-oauth.component.html',
+  styleUrl: './google-facebook-oauth.component.scss'
 })
 export class GoogleFacebookOauthComponent {
   visibleDeleteUserPopup: boolean = false;
