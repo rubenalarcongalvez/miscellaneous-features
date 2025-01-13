@@ -1,7 +1,6 @@
 {
   "routes": [
     "/",
-    "/adsterra",
     "/basic-accordion",
     "/blur-message",
     "/box-shadow-vs-drop-shadow",
@@ -15,7 +14,6 @@
     "/field-sizing",
     "/firebase-database",
     "/glass-effect",
-    "/google-adsense",
     "/google-facebook-oauth",
     "/input-file",
     "/lazy-loading",

@@ -24,8 +24,6 @@ import { GoogleFacebookOauthComponent } from './views/google-facebook-oauth/goog
 import { FirebaseDatabaseComponent } from './views/firebase-database/firebase-database.component';
 import { canActivate, redirectUnauthorizedTo } from "@angular/fire/auth-guard";
 import { ExportExcelCancelPetitionsComponent } from './views/export-excel-cancel-petitions/export-excel-cancel-petitions.component';
-import { GoogleAdsenseComponent } from './google-adsense/google-adsense.component';
-import { AdsterraComponent } from './adsterra/adsterra.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', component: HomeComponent},
@@ -52,8 +50,6 @@ export const routes: Routes = [
     {path: 'google-facebook-oauth', component: GoogleFacebookOauthComponent},
     {path: 'firebase-database', component: FirebaseDatabaseComponent, ...canActivate(() => redirectUnauthorizedTo('/google-facebook-oauth'))}, //We use Firebase's one in this example, but if we have a more secure backend, or more specific, we should use it
     {path: 'export-excel-cancel-petitions', component: ExportExcelCancelPetitionsComponent},
-    {path: 'google-adsense', component: GoogleAdsenseComponent},
-    {path: 'adsterra', component: AdsterraComponent},
 
     {path: '**', redirectTo: ''}
 ];
